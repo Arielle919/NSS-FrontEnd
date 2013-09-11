@@ -1,0 +1,70 @@
+/* this is a single line comment */
+/* this
+is
+s
+muti-line
+comment
+*/
+
+/*selecting by ID*/
+#div1
+{
+  color: rgba(0, 0, 225, 3);
+}
+#div2{
+  color: white;
+}
+#div3{
+  color: blue;
+}
+
+/*selecting by Class*/
+.divs{
+  background-color: yellow;
+}
+
+/*selecting by tag*/
+p
+{
+color: green;
+}
+a[href="http://google.com"]
+{
+  background-color: red;
+}
+/*heres a string , but find out where it ends in that*/
+a[href$="http://cnn.com"]
+{
+  background-color: green;
+}
+/*yahoo is somewhere in here and when u find it turn it into blue*/
+a[href*="yahoo"]
+{
+  background-color: blue;
+  color: white;
+}
+a:hover
+{
+background-color:#000000;
+}
+/*if you want to find direct children all li's :)*/
+ul > li
+{
+  font-size: 25px;
+}
+/*if you want the 3rd lil selected
+ul li:nth-child(3)
+{
+background-color: green;
+};*/
+/*you want the 2nd span highlighted
+ul > li:nth-child(3) > span:nth-child(2)
+{
+background-color: red;
+};*/
+/*you want the even span highlighted*/
+ul > li:nth-child(3) > span:nth-child(2n)
+{
+background-color: red;
+};
+

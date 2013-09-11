@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+
+#logoimg{
+
+  float: left;
+  width:100px;
+  border: 1px dashed red;
+}
+
+#logotxt{
+
+  float: left;
+  width:400px;
+  border: 1px dashed red;
+  font-size: 35px;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  padding-top:20px;
+  padding-bottom:20px;
+
+}
+
+a:hover{
+  background-color:#000;
+}
+
+header > h1
+{
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 35px;
+}
+
+.clear
+{
+  clear:both;
+}
+
+body
+{
+  font-family: 'Josefin Sans', sans-serif;
+  background-color:#f00;
+}
+
+ ul
+{
+list-style: inside circle;
+list-style-type: circle;
+padding-left:50px;
+}
+
+section > h2{
+font-size:45px;
+}
+
+section > p{
+  padding:2px;
+  line-height: 20px;
+}
+
+section > p:nth-of-type(2n){
+font-style: italic;
+color:#fff;
+background-color:#000;
+}
