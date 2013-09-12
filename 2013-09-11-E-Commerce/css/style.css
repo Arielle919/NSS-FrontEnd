@@ -6,11 +6,21 @@ body{
 background-color:#ffffff;
 font-family: 'Inika', serif;
 width:960px;
-height:800px;
+height:100%;
 margin:0 auto;
 padding:10px;
 }
 
+.p_format{
+  width:940px;
+  padding:10px;
+  line-height: 20px;
+  text-align: justify;
+}
+
+#p_format_index{
+padding-right:10px;
+}
 /*this is the 960px width header*/
 header{
   width:960px;
@@ -70,10 +80,12 @@ nav a:hover{
 /*this is the wrapper which wraps around the main section and
 holds the content together*/
 #wrapper{
-  height:600px;
+  height:100%;
   background-color:#ffffff;
   padding:10px;
   position:relative;
+  width:960px;
+  overflow: hidden;
 }
 
 #video{
