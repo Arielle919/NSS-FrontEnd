@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Nosifer);
 @import url(http://fonts.googleapis.com/css?family=Inika);
 
+/*Arielle styling-------------------------------------AA*/
 body{
 background-color:#ffffff;
 font-family: 'Inika', serif;
@@ -10,6 +11,7 @@ margin:0 auto;
 padding:10px;
 }
 
+/*this is the 960px width header*/
 header{
   width:960px;
   height:150px;
@@ -17,9 +19,10 @@ header{
   background-color:#000000;
   color:#FF9900;
   border-radius: 10px;
+  position: relative;
 }
 
-/*this is the header and the main head text
+/*the main head text
 "Happy Halloween Shopping"*/
 #logo{
   width:600px;
@@ -29,6 +32,15 @@ header{
   padding-top:20px;
   padding-left:10px;
   color:#FF9900;
+}
+
+/*this is the shopping cart on the home page*/
+#shopping_cart_home_img{
+width:50px;
+height:50px;
+float:right;
+background-image:url(http://www.websitemonster.net/images/used%20in%20website/shopping_cart.png);
+background-repeat: no-repeat;
 }
 
 /*Beginning of Top Nav------------------------AA*/
@@ -119,5 +131,8 @@ footer{
   color:#FF9900;
   padding:10px;
   border-radius: 10px;
+  line-height:90px;
+  text-align: center;
 }
 
+/*end of Arielle styling-------------------------*/
