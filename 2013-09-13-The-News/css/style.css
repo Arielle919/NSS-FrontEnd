@@ -1,0 +1,260 @@
+/*
+*****************
+* =GENERAL style of index.html START-Styles
+*****************
+*/
+
+@import url(http://fonts.googleapis.com/css?family=UnifrakturMaguntia|Averia+Serif+Libre:400,400italic,700);
+
+body {
+  font-family: 'Averia Serif Libre', serif;
+  font-size: 14px;
+}
+
+.banner, section, footer {
+  margin: 0 auto;
+}
+
+.banner {
+  width: 1150px;
+  height: 95px;
+  padding: 10px;
+}
+
+nav {
+  width:1170px;
+  height:30px;
+  background-color:#303436;
+  margin:0 auto;
+  /*display:inline;
+  /*list-style: none;*/
+}
+
+ ul{
+    padding:10px;
+ }
+
+ li {
+
+ margin-left:10px;
+display:block;
+line-height: 10px;
+
+ }
+
+ nav a{
+  color:#FFFFFF;
+  float:left;
+  padding-right:10px;
+  text-decoration: none;
+
+ }
+
+nav a:hover{
+  text-decoration: underline;
+
+
+
+}
+
+
+h1 {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 82px;
+  color: #303436;
+  margin-top: 7px;
+}
+
+ #wrapper1170px, footer {
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+  box-shadow: 0 0
+  20px rgba(0, 0, 0, .15);
+}
+
+footer {
+  background: #303436;
+  width: 1170px;
+  /*padding: 10px;*/
+  margin: 0 auto;
+}
+
+.copyright {
+  color: #AFAFAF;
+  padding: 10px;
+}
+
+/*
+*****************
+* =GENERAL style of index.html END-Styles
+*****************
+*/
+
+
+/*
+*****************
+* =MIDDLE of index.html START-Styles
+*****************
+*/
+
+#wrapper1170px {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+#primary_column {
+  width: 760px;
+  float: left;
+  margin-left: 20px;
+  margin-top:40px;
+}
+
+#secondary_column {
+  width: 338px;
+  float: left;
+  margin-left: 32px;
+  margin-top:40px;
+}
+
+#top_picture {
+  position: relative;
+  /*Positioning relative so that figcaption (#top_picture's child) can be absolute positioned*/
+}
+
+#top_picture figure img {
+  height: 360px;
+  width: 760px;
+}
+
+#top_picture figcaption {
+  background-color: black;
+  height: 80px;
+  width: 760px;
+  position: absolute;
+  bottom: 0px;
+}
+
+#top_picture figcaption span {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  top: 22px;
+  left: 40px;
+}
+
+.clear {
+  clear: both;
+}
+
+section {
+  margin-top: 20px;
+}
+
+#primary_column article img {
+  float: left;
+  width: 220px;
+  height: 170px;
+}
+
+#primary_column .article_text {
+  float: left;
+  width: 525px;
+  height: 170px;
+  margin-left: 15px;
+}
+
+#primary_column h2 {
+  margin: 0;
+}
+
+#primary_column article {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 12px;
+}
+
+#primary_column article:last-child {
+    border-bottom: none;
+}
+
+#secondary_column article img {
+  float: left;
+  width: 70px;
+  height: 70px;
+}
+
+#secondary_column .article_text {
+  float: left;
+  width: 253px;
+  margin-left: 15px;
+  /*background-color: lightgray;*/
+}
+
+#secondary_column h2 {
+  margin: 0;
+}
+
+#secondary_column p {
+  text-align: justify;
+}
+
+#secondary_column article {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d9d9d9;
+    /*padding-bottom: 12px;*/
+    /*background-color: purple;*/
+}
+
+#secondary_column article:last-child {
+    border-bottom: none;
+}
+
+a{
+color:#000000;
+text-decoration: none;
+}
+a:hover{
+text-decoration: underline;
+}
+
+/*
+*****************
+* END styles for MIDDLE of index.html
+*****************
+*/
+
+/*
+*****************
+* START styles for Story Pages
+*****************
+*/
+
+.story_page img {
+  padding: 50px 20px 20px 20px;
+}
+
+.story_page h2,
+.story_page p,
+.story_page h3 {
+  padding-left: 20px;
+}
+
+.story_page h3 {
+  font-size: 14px;
+  color: #a3a2a2;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+*****************
+* END styles for Story Pages
+*****************
+*/
