@@ -1,0 +1,9 @@
+@mixin box_fn($margin, $padding, $border, $border-radius, $background-color, $baox-shadow)
+{
+  margin: $margin;
+  padding: $padding;
+  border: $border;
+  border-radius: $border-radius;
+  background-color:$background-color ;
+  box-shadow:$box-shadow;
+}

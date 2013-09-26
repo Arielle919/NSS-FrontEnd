@@ -1,0 +1,23 @@
+div#content
+{
+  section
+  {
+
+  h1
+  {
+    font-size: $normal_font_size + 8px;
+    color: $tesla_red;
+  }
+
+  h2
+  {
+    @include box_fn();
+  }
+
+  p
+  {
+
+  }
+
+ }
+}

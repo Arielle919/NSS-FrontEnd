@@ -1,0 +1,30 @@
+@import 'colors';
+@import 'fonts';
+@import 'functions';
+@import 'header';
+@import 'nav';
+@import 'content';
+@import 'footer';
+
+#main
+{
+  width:960px;
+  margin:0 auto;
+}
+
+.clear
+{
+  clear:both;
+}
+
+a
+{
+  text-decoration: none;
+  color: $tesla_red;
+
+  &:hover
+  {
+    color: desaturate($tesla_red, 60%);
+  }
+
+}
