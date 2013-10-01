@@ -1,0 +1,17 @@
+!!!5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title JQuery Practice PIGLATIN
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    %h1 Pig latin conversion
+    %input#pig_text{type: 'text'}
+    %span.sym =
+    %input#result_pig{type: 'text', readonly: true}
+    %input#pig_button{type: 'button', value: 'PIG_IT'}
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}
