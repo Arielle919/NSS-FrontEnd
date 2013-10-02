@@ -12,7 +12,6 @@ function makeBoxes()
   var inputColor = $('#inputColor').val();
   // var colors = inputColor.split('');
   // for (i = 0; i < colors.length; i++)
-
   var $colorBox = $('<div>');
   $colorBox.addClass('box');
   $colorBox.css('background-color', inputColor);
@@ -21,9 +20,7 @@ function makeBoxes()
   clearInput();
 
   // $div.text(colors[i]);
-
 }
-
 
 function clearInput()
 {
