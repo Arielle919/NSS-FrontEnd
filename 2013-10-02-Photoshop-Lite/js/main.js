@@ -1,29 +1,53 @@
-$(document).ready(initialize)
+'use strict';
 
-function initialize()
-{
-  $('#colorbtn').click(makeBoxes);
-  // $('#inputColor').focus();
+$(document).ready(initialize);
+
+// debugger;
+
+function initialize(){
+  $('#add_color').click(addColor);
+  $('#addbox').click(addBox);
+  $('#colors').on('click', '.box', colorPalatteClicked);
+  $('#boxes').on('mouseover', '.minibox', canvasHover);
 }
 
-
-function makeBoxes()
-{
-  var inputColor = $('#inputColor').val();
-  // var colors = inputColor.split('');
-  // for (i = 0; i < colors.length; i++)
-  var $colorBox = $('<div>');
-  $colorBox.addClass('box');
-  $colorBox.css('background-color', inputColor);
-
-  $('#boxDisplay').prepend($colorBox);
-  clearInput();
-
-  // $div.text(colors[i]);
+function canvasHover(){
+  var $canvas = $(this);
+  var brushColor = $('#brush').css('background-color');
+  $canvas.css('background-color', brushColor);
 }
 
-function clearInput()
-{
-   $('#inputColor').val('');
-   $('#inputColor').focus();
+function colorPalatteClicked(){
+  var $box = $(this);
+  var color = $box.css('background-color');
+  $('#brush').css('background-color', color);
 }
+
+function addColor(){
+  var color = $('#color').val();
+  var $div = $('<div>');
+  $div.addClass('box');
+  $div.css('background-color', color);
+
+  $('#colors').prepend($div);
+  clearInputAndFocus();
+}
+
+function clearInputAndFocus(){
+  $('#color').val('');
+  $('#color').focus();
+}
+
+function addBox(){
+  var boxNumbers = $('#amount').val();
+  boxNumbers = parseInt(boxNumbers, 10);
+  for (var i =0; i < boxNumbers; i++)
+  {
+    var $div = $('<div>');
+    $div.addClass('minibox');
+
+    $('#boxes').append($div);
+  }
+
+}
+

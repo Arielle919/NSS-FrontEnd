@@ -2,17 +2,20 @@
 <html lang='en'>
   <head>
     <meta charset='utf-8'>
-    <title>Photoshop Jquery</title>
+    <title>Template</title>
     <link href='css/normalize.css' rel='stylesheet'>
     <link href='css/style.css' rel='stylesheet'>
   </head>
   <body>
-    <h1>Photoshop LITE</h1>
-    <input id='inputColor' type='text'>
-    <input id='colorbtn' type='button' value='ADD COLOR'>
-    <div class='box' id='brush'></div>
+    <h1>Photoshop Lite</h1>
+    <input autofocus id='color' placeholder='#ffcc33' type='text'>
+    <input id='add_color' type='button' value='Add Color!'>
+    <span id='brush'></span>
+    <div id='colors'></div>
     <div class='clear'></div>
-    <div id='boxDisplay'></div>
+    <input id='amount' placeholder='3000' type='text'>
+    <input id='addbox' type='button' value='Add Boxes!'>
+    <div id='boxes'></div>
     <script src='js/jquery-1.10.2.min.js'></script>
     <script src='js/underscore-min.js'></script>
     <script src='js/main.js'></script>
