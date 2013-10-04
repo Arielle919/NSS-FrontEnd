@@ -1,0 +1,55 @@
+#wrapper {
+  width: 800px;
+  background-color: grey;
+  margin: 0 auto;
+  border-radius: 10px; }
+  #wrapper h1 {
+    color: maroon;
+    text-align: center; }
+
+input > #balance {
+  float: left;
+  height: 100px;
+  width: 150px; }
+
+input[type=button] {
+  color: white;
+  background-color: maroon;
+  border-radius: 10px; }
+
+input[type=button]:hover {
+  color: maroon;
+  background-color: white;
+  moz-transition: background-color 1000ms linear;
+  webkit-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear; }
+
+.clear {
+  clear: both; }
+
+.deplist {
+  color: green; }
+
+.withlist {
+  color: maroon; }
+
+#transactions {
+  height: 400px;
+  border: 2px solid maroon;
+  border-radius: 10px; }
+
+#depOutput {
+  width: 200px;
+  height: 400px;
+  background-color: white;
+  float: left;
+  border-radius: 10px; }
+
+#withOutput {
+  width: 200px;
+  height: 400px;
+  background-color: white;
+  float: left;
+  margin-left: 100px;
+  margin-right: 50px;
+  border-radius: 10px; }

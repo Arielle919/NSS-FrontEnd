@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Geek Bank</title>
+    <link href='css/normalize.css' rel='stylesheet'>
+    <link href='css/style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div id='wrapper'>
+      <h1>Welcome to Geek bank of America</h1>
+      <input id='logoInput' placeholder='enter logo url' type='text'>
+      <input id='logoBtn' type='button' value='create logo'>
+      <img id='logo'>
+      <div class='clear'></div>
+      <input id='balInput' placeholder='enter your balance' type='text'>
+      <input id='balBtn' type='button' value='create balance'>
+      <div class='clear'></div>
+      <input id='amount' placeholder='enter amount' type='text'>
+      <input id='depositBtn' type='button' value='DEPOSIT'>
+      <input id='withdrawBtn' type='button' value='WITHDRAW'>
+      <div class='clear'></div>
+      <h1>Transaction List</h1>
+      <div id='transactions'>
+        <div id='depOutput'></div>
+        <input id='balance' type='text' value='$'>
+        <div id='withOutput'></div>
+      </div>
+    </div>
+    <script src='js/jquery-1.10.2.min.js'></script>
+    <script src='js/underscore-min.js'></script>
+    <script src='js/main.js'></script>
+  </body>
+</html>
