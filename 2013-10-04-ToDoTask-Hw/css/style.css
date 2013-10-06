@@ -1,0 +1,13 @@
+#wrapper {
+  width: 960px;
+  height: 800px;
+  background-color: blue;
+  margin: 0 auto; }
+
+.tab1 {
+  width: 460px;
+  background-color: orange; }
+
+.tab2 {
+  width: 460px;
+  background-color: purple; }

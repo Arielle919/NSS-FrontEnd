@@ -1,0 +1,31 @@
+!!!5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Task
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    #wrapper
+      %h1 Create your Task
+      %table.tab1
+        %tr
+          %td
+            Due Date
+            %input#typeDate{type: 'text', placeholder: 'October,10,2013'}
+          %td
+            Task
+            %input#typeTask{type: 'text', placeholder: 'Enter task'}
+          %td
+            Color
+            %input#typeColor{type: 'text', placeholder: '#f00'}
+          %td
+            Add Task
+            %input#addtask{type: 'button', value: 'Add Task'}
+      %h1 Task List
+      %table.tab2
+        %tr.output
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}

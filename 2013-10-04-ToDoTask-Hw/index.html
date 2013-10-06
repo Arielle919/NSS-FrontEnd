@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Task</title>
+    <link href='css/normalize.css' rel='stylesheet'>
+    <link href='css/style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div id='wrapper'>
+      <h1>Create your Task</h1>
+      <table class='tab1'>
+        <tr>
+          <td>
+            Due Date
+            <input id='typeDate' placeholder='October,10,2013' type='text'>
+          </td>
+          <td>
+            Task
+            <input id='typeTask' placeholder='Enter task' type='text'>
+          </td>
+          <td>
+            Color
+            <input id='typeColor' placeholder='#f00' type='text'>
+          </td>
+          <td>
+            Add Task
+            <input id='addtask' type='button' value='Add Task'>
+          </td>
+        </tr>
+      </table>
+      <h1>Task List</h1>
+      <table class='tab2'>
+        <tr class='output'></tr>
+      </table>
+    </div>
+    <script src='js/jquery-1.10.2.min.js'></script>
+    <script src='js/underscore-min.js'></script>
+    <script src='js/main.js'></script>
+  </body>
+</html>
