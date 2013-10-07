@@ -1,63 +1,41 @@
-$(document).ready(initialize)
+$(document).ready(init);
 
-function initialize()
-{
-
-
+function initSplit(string) { // convert to integer array
+  var numbers = string.split(',');
+  for (var i = 0; i < numbers.length; i++)
+    numbers[i] = parseInt(numbers[i]);
+  return numbers;
 }
 
-function range_num(Anumber, Bnumber)
-{
- return _.filter(Anumber, function(num) {return (num % 1) ==0;});
-
- return = var sets = []; for(i=5; i < sets.length; i++)
-            {
-            var Bnumber=3;
-            sets.push(Bnumber);
-            }
-
+function rangeArray(num) { //make a numbered array of a specified length
+  return _.range(1, num + 1);
 }
 
+function multiplyArray(numbers, multiple) { // multiply each array item
+  for (var i = 0; i < numbers.length; i++)
+    numbers[i] *= multiple;
+  return numbers;
+}
 
-// var balance = 1000;
+function sumArray(numbers) { // add all the numbers in an array
+  var sum = 0;
+  for (var i = 0; i < numbers.length; i++)
+    sum += numbers[i];
+  return sum;
+}
 
-// $(document).ready(initialize)
+function arrayToString(numbers){
+  var sum = sumArray(numbers);
+  return numbers.join('+') + "=" + sum;
+}
 
-// function initialize()
-// {
-// $('#dep_btn').click(dep_sum);
-// $('#with_btn').click(with_sum);
-// }
+function processInput() { // bring it all together
+  var input = initSplit($('#input').val());
+  var nums = rangeArray(input[0]);
+  nums = multiplyArray(nums, input[1]);
+  $('#output').text(arrayToString(nums));
+}
 
-// function adding(num1, num2)
-// {
-// return num1 + num2;
-// }
-
-// function subtracting(num1, num2)
-// {
-// return num1 - num2;
-// }
-
-// function dep_sum()
-// {
-// var amount = $('#amount').val();
-// amount = parseInt(amount);
-// balance = adding(balance, amount);
-// $('#balance').val(balance);
-
-// if(balance >= 0)
-//  $('#balance').removeClass('negative');
-// }
-
-// function with_sum()
-// {
-// var amount = $('#amount').val();
-// amount = parseInt(amount);
-// balance = subtracting(balance, amount);
-// // var balance = parseInt($('#balance'))
-// $('#balance').val(balance);
-
-// if(balance < 0)
-//  $('#balance').addClass('negative');
-// }
+function init() {
+  $('#convert').click(processInput);
+}

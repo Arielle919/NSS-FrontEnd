@@ -8,23 +8,13 @@
   %body
     #wrapper
       %h1 Create your Task
-      %table.tab1
-        %tr
-          %td
-            Due Date
-            %input#typeDate{type: 'text', placeholder: 'October,10,2013'}
-          %td
-            Task
-            %input#typeTask{type: 'text', placeholder: 'Enter task'}
-          %td
-            Color
-            %input#typeColor{type: 'text', placeholder: '#f00'}
-          %td
-            Add Task
-            %input#addtask{type: 'button', value: 'Add Task'}
+      %input#typeDate{type: 'text', placeholder: '10/10/2013'}
+      %input#typeTask{type: 'text', placeholder: 'Enter task'}
+      %input#typeColor{type: 'text', placeholder: '#f00'}
+      %input#addtask{type: 'button', value: 'Add Task'}
       %h1 Task List
-      %table.tab2
-        %tr.output
+      %table
+
 
     %script{src: 'js/jquery-1.10.2.min.js'}
     %script{src: 'js/underscore-min.js'}
