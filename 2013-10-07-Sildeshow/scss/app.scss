@@ -1,0 +1,13 @@
+.photo
+{
+  float:left;
+  width: 250px;
+  height:200px;
+  border: 1px dashed #cccccc;
+  margin:10px;
+  background-size: cover;
+}
+.selected
+{
+  border: 2px solid red;
+}
