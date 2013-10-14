@@ -12,3 +12,16 @@
  width:100px;
  height:100px;
  margin: 5px auto; }
+ 
+a
+ {
+   color: green;
+   background-color:black;
+   display:block;
+ }
+a:hover
+{
+  color:white;
+  background-color:green;
+  
+}
