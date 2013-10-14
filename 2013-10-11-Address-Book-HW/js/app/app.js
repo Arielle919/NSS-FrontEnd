@@ -11,6 +11,7 @@ $(document).ready(initialize);
 function initialize(){
   $(document).foundation();
   $('#addPerson').click(addPerson);
+  $('#AddressBook').on('dblclick','.personBox', removePerson);
   Δdb = new Firebase('https://addressbook-919.firebaseio.com/');
   Δpeople = Δdb.child('people');
 
@@ -34,22 +35,6 @@ function addPerson()
 
   Δpeople.push(person);
 
-}
-
-function addMorePeople(snapshot)
-{
-  var human = snapshot.val();
-  createPerson(human);
-  db.people.push(human);
-}
-
-function createPerson(human)
-{
-  var $div = $('<div>');
-  $div.addClass('personBox');
-
-  $div.append(human.name + '<br>', human.address+ '<br>', human.website+ '<br>', human.email+ '<br>', human.photo);
-  $('#AddressBook').prepend($div);
 
   $('#name').val('');
   $('#address').val('');
@@ -58,4 +43,35 @@ function createPerson(human)
   $('#photo').val('');
 
   $('#name').focus();
+
+}
+
+function addMorePeople(snapshot)
+{
+  var human = snapshot.val();
+  createPerson(human);
+  removePerson(human);
+  db.people.push(human);
+}
+
+function createPerson(human)
+{
+  var div = '<div class="person"><br><img class="photo"><br><p class="name"></p><br><p class="address"></p><br><a class="website" href= http:// + person.website></a><br><a class="email" href= mailto: + "person.email"></a></div>';
+  var $div =  $(div);
+  $div.addClass('personBox');
+
+  $div.children('.photo').attr('src', human.photo);
+  $div.children('.name').text(human.name);
+  $div.children('.address').text(human.address);
+  $div.children('.website').text(human.website);
+  $div.children('.email').text(human.email);
+
+  $('#AddressBook').prepend($div);
+
+}
+
+function removePerson(human)
+{
+  var $person = $(this);
+  $person.remove();
 }
