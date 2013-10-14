@@ -1,6 +1,14 @@
-.personBox {
-  width: 200px;
-  height: 300px;
-  border: 2px dashed red;
-  float: left;
-  text-align: left; }
+.personBox
+{
+  width:200px;
+  height:300px;
+  border: 2px dashed black;
+  float:left;
+  text-align:center;
+}
+
+.photo {
+ display: block;
+ width:100px;
+ height:100px;
+ margin: 5px auto; }
