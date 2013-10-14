@@ -2,9 +2,10 @@
 {
   width:200px;
   height:300px;
-  border: 2px dashed black;
+  border: 2px solid black;
   float:left;
   text-align:center;
+  margin:10px;
 }
 
 .photo {
@@ -15,7 +16,7 @@
  
 a
  {
-   color: green;
+   color: white;
    background-color:black;
    display:block;
  }
