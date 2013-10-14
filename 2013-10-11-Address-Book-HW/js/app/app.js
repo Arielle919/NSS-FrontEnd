@@ -16,6 +16,7 @@ function initialize(){
   Δpeople = Δdb.child('people');
 
   Δpeople.on('child_added', addMorePeople);
+  Δpeople.on('child_removed', removePerson);
 }
 
 function addPerson()
@@ -72,6 +73,6 @@ function createPerson(human)
 
 function removePerson(human)
 {
-  var $person = $(this);
-  $person.remove();
+  var $human = $(this);
+  $human.remove();
 }
