@@ -1,0 +1,24 @@
+html, body {
+  height: 100%; }
+
+body {
+  background-color: #252525; }
+
+#map-canvas {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black; }
+
+#left, #right {
+  float: left; }
+
+#right {
+  width: 10%;
+  padding-top: 25px; }
+
+#left {
+  height: 100%;
+  width: 90%; }
+
+#debug {
+  color: #ffffff; }
