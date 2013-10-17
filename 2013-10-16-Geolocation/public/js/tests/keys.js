@@ -1,3 +1,3 @@
-// var db = {};
-// db.keys = {};
-// db.keys.firebase = 'enter-firebase-url';
+var db = {};
+db.keys = {};
+db.keys.firebase = 'enter-firebase-url';
