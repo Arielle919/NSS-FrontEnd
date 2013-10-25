@@ -1,3 +1,5 @@
+'use strict';
+
 test( "Filter Even Numbers", function() {
   var numbers = _.range(10); // range gives up 0 -9 into array of numbers
   var expected = [0, 2, 4, 6, 8]; //0 to 10 by 2
@@ -34,4 +36,10 @@ test( "find a string ending in a particular Letter", function() {//you must matc
   deepEqual(find_string_ending_letter(strings, "s"), "cats", "Find word that ends in s" );
   deepEqual(find_string_ending_letter(strings, "z"), undefined, "should not work" );
 
+});
+
+test( "Filter Negative Numbers", function() {
+  var numbers = _.range(0, -10, -1); // range gives up 0 -9 into array of numbers
+  var expected = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9]; //0 to 10 by 2
+  deepEqual(filter_negative(numbers), expected, "Testing the filter_negative function " ); // filter evens is a fucntion to use
 });

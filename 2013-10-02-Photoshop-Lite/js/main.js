@@ -44,6 +44,7 @@ function addBox(){
   for (var i =0; i < boxNumbers; i++)
   {
     var $div = $('<div>');
+    $div.text(boxNumbers[i]);
     $div.addClass('minibox');
 
     $('#boxes').append($div);

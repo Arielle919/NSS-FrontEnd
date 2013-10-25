@@ -1,3 +1,5 @@
+'use strict';
+
 function filter_evens(numbers)
 {
  return _.filter(numbers, function(num) {return (num % 2) ==0;});
@@ -30,4 +32,10 @@ function find_string_ending_letter(strings, letter)
 {
  var x = _.find(strings, function(string){return string[string.length - 1] == letter;});
  return x;
+}
+
+function filter_negative(numbers)
+{
+ return _.filter(numbers, function(num) {return (num % -1) ==0;});
+
 }
