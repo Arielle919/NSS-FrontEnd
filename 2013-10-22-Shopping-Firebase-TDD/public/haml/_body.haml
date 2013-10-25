@@ -22,30 +22,63 @@
         %th % Off
         %th Sale
 .row
-  .small-12.columns
-    %input#previous.hidden.small.button{type: 'button', value:'previous'}
-    %input#next.hidden.small.button{type: 'button', value:'next'}
+  .small-2.columns
+    #previous.hidden.button.tiny.alert.expand Previous
+  .small-2.columns
+    #next.hidden.button.tiny.success.expand Next
+  .small-8.columns
 .row
   .small-2.columns
     %input#customer-image{type: 'text', placeholder: 'image.png'}
   .small-2.columns
-    %input#customer-name{type: 'text', placeholder: 'Your Name'}
+    %input#customer-name{type: 'text', placeholder: 'name'}
   .small-6.columns
-    %input#domestic{type: 'radio', name: 'address', value: 'domestic' } Domestic
-    %input#international{type: 'radio', name: 'address', value: 'international' }   International
+    %input#domestic{type: 'radio', name: 'address', value: 'domestic'} Domestic
+    %input#international{type: 'radio', name: 'address', value: 'international'} International
   .small-2.columns
-    %input#add-customer.button.small.radius.success{type: 'button', value: 'add customer'}
+    %input#add-customer.small.radius.button{type: 'button', value: 'Add Customer'}
 .row
-  .small-3.columns
-    %select#select-customer
-  .small-7.columns
-    %table#cart
-      %tr
-        %th Name
-        %th Count
-        %th Amount
-        %th Weight
-        %th Shipping
-        %th Total
   .small-2.columns
-    %input#purchase.button.small.radius.success{type:'button', value:'Purchase'}
+    %select#select-customer
+      %option Select Customer
+  .small-10.columns
+    %table#cart
+      %thead
+        %tr
+          %th Name
+          %th Count
+          %th Amount
+          %th Weight
+          %th Shipping
+          %th Total
+      %tbody
+      %tfoot
+        %tr
+          %td
+          %td#cart-count
+          %td#cart-amount
+          %td#cart-weight
+          %td#cart-shipping
+          %td#cart-grand
+    #purchase.button.success.small.radius Purchase
+  .small-10.columns
+    %table#orders
+      %thead
+        %tr
+          %th ID
+          %th Time
+          %th Customer
+          %th Products
+          %th Total
+          %th Shipping
+          %th Grand
+      %tbody
+      %tfoot
+        %tr
+          %td
+          %td
+          %td
+          %td
+          %td
+          %td
+          %td#revenue

@@ -10,18 +10,6 @@ var Δproducts;
 var Δcustomers;
 var Δorders;
 
-// Local Schema (defined in keys.js)
-db.products = [];
-db.customers = [];
-db.orders = [];
-db.cart = {};
-db.cart.products = [];
-db.cart.totals = {};
-db.pagination = {};
-db.pagination.perPage = 5;
-db.pagination.currentPage = 1;
-db.pagination.currentRowCount = 0;
-
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
@@ -30,6 +18,7 @@ $(document).ready(initialize);
 
 function initialize(){
   $(document).foundation();
+  initializeSchema();
   initializeDatabase();
   turnHandlersOn();
 }
@@ -37,6 +26,23 @@ function initialize(){
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
+
+function initializeSchema(){
+  db.constants = {};
+  db.constants.domesticShipping = 0.50;
+  db.constants.internationalShipping = 1.50;
+
+  db.products = [];
+  db.customers = [];
+  db.orders = [];
+
+  db.pagination = {};
+  db.pagination.perPage = 5;
+  db.pagination.currentPage = 1;
+  db.pagination.currentRowCount = 0;
+
+  db.cart = new Cart();
+}
 
 function initializeDatabase(){
   Δdb = new Firebase(db.keys.firebase);
@@ -51,20 +57,22 @@ function initializeDatabase(){
 
 function turnHandlersOn(){
   $('#add-product').on('click', clickAddProduct);
+  $('#add-customer').on('click', clickAddCustomer);
   $('#previous').on('click', clickNavigation);
   $('#next').on('click', clickNavigation);
-  $('#add-customer').on('click', clickAddCustomer);
-  $('#select-customer').on('change', CustomerChanged);
-  $('.product').on('click','.product-image', ProductClicked);
+  $('#products').on('click', 'img', clickAddItemToCart);
+  $('#select-customer').on('change', changeCustomer);
+  $('#purchase').on('click', clickPurchase);
 }
 
 function turnHandlersOff(){
   $('#add-product').off('click');
+  $('#add-customer').off('click');
   $('#previous').off('click');
   $('#next').off('click');
-  $('#add-customer').off('click', clickAddCustomer);
+  $('#products').off('click');
   $('#select-customer').off('change');
-  $('.product').off('click','.product-image', ProductClicked);
+  $('#purchase').off('click');
 }
 
 // -------------------------------------------------------------------- //
@@ -83,53 +91,61 @@ function clickAddProduct(){
   Δproducts.push(product);
 }
 
+function clickAddCustomer(){
+  var image = getValue('#customer-image');
+  var name = getValue('#customer-name');
+  var isDomestic = $('input[name="address"]:checked').val() === 'domestic';
+  htmlResetRadioButtons();
+
+  var customer = new Customer(image, name, isDomestic);
+  Δcustomers.push(customer);
+}
+
 function clickNavigation(){
   db.pagination.currentRowCount = 0;
   htmlEmptyProductRows();
 
   var isPrevious = this.id === 'previous';
-  db.pagination.currentPage += isPrevious ? -1 : +1; //if isP is true then -1 else -1
+  db.pagination.currentPage += isPrevious ? -1 : +1;
 
-  var startIndex = db.pagination.perPage * (db.pagination.currentPage - 1); //2 * -1 = 1 + 5 = 5 is where we are
-  var endLength = (startIndex + db.pagination.perPage) > db.products.length ? db.products.length : startIndex + db.pagination.perPage; // if passes 12 then  change end.length to products.length then my end length is what im starting from + 5
-  var isLess = startIndex > 0; // is there previous stuff...if start Index is greater than 0
-  var isMore = db.products.length > endLength; //is the length os the array greater than end length...or more than 12
+  var startIndex = db.pagination.perPage * (db.pagination.currentPage - 1);
+  var endLength = (startIndex + db.pagination.perPage) > db.products.length ? db.products.length : startIndex + db.pagination.perPage;
+  var isLess = startIndex > 0;
+  var isMore = db.products.length > endLength;
 
-  htmlShowHideNavigation('#previous', isLess); //if less is true shhow it
-  htmlShowHideNavigation('#next', isMore);// if more is true show if false don't
+  htmlShowHideNavigation('#previous', isLess);
+  htmlShowHideNavigation('#next', isMore);
 
   for(var i = startIndex; i < endLength; i++){
     htmlAddProduct(db.products[i]);
   }
 }
 
-function clickAddCustomer()
-{
-  var image = getValue('#customer-image');
-  var name = getValue('#customer-name');
-  var isDomestic = $('input[name="address"]:checked').val() === 'domestic';
-  htmlResetRadioButtons();
-
-  var customer = new Customer (image, name, isDomestic);
-
-  Δcustomers.push(customer);
+function clickAddItemToCart(){
+  if(db.cart.customer){
+    var name = $(this).parent().next().text(); //find the name dom object then....
+    var product = _.find(db.products, function(p){return p.name === name;});//do this to find it in an array to access it later
+    db.cart.products.push(product);
+    htmlAddItemToCart(product);
+    htmlUpdateCartTotals();
+  }
 }
 
-function CustomerChanged()
-{
+function changeCustomer(){
   var name = this.value;
   var customer = _.find(db.customers, function(c){return c.name === name;});
-
   db.cart.customer = customer;
-
 }
 
-function ProductClicked()
+function clickPurchase(orderName, amount, shipping, grand)
 {
-  var name = this.name;
-  var product = name;
-  db.cart.products = product;
+  var $SelectDefault = $('#select-customer > option:last-child').text();
+  $('#select-customer').val($SelectDefault);
+
+  var order = new Order(orderName, amount, shipping, grand);
+  Δorders.push(order);
 }
+
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
@@ -147,15 +163,15 @@ function dbProductAdded(snapshot){
 }
 
 function dbCustomerAdded(snapshot){
-  var person = snapshot.val();
-  var customer = new Customer(person.image, person.name, person.isDomestic);
+  var obj = snapshot.val();
+  var customer = new Customer(obj.image, obj.name, obj.isDomestic);
   customer.id = snapshot.name();
   db.customers.push(customer);
   htmlAddCustomerToSelect(customer);
 }
 
 function dbOrderAdded(snapshot){
-  var order = snapshot.val();
+  var obj = snapshot.val();
 }
 
 // -------------------------------------------------------------------- //
@@ -164,7 +180,7 @@ function dbOrderAdded(snapshot){
 
 function htmlAddProduct(product){
   db.pagination.currentRowCount++;
-  var tr = '<tr class="product"><td class="product-image"><img src="/img/' + product.image + '"></td><td class="product-name">' + product.name + '</td><td class="product-weight">' + product.weight + ' lbs</td><td class="product-price">' + formatCurrency(product.price) + '</td><td class="product-off">' + product.off + '</td><td class="product-sale">' + formatCurrency(product.salePrice()) + '</td></tr>';
+  var tr = '<tr class="product"><td class="product-image"><img src="/img/' + product.image + '"></td><td class="product-name">' + product.name + '</td><td class="product-weight">' + product.weight.toFixed(2) + ' lbs</td><td class="product-price">' + formatCurrency(product.price) + '</td><td class="product-off">' + product.off.toFixed(2) + '</td><td class="product-sale">' + formatCurrency(product.salePrice()) + '</td></tr>';
   var $tr = $(tr);
   $('#products').append($tr);
 }
@@ -181,24 +197,60 @@ function htmlEmptyProductRows(){
   $('.product').remove();
 }
 
-function htmlResetRadioButtons()
-{
-  // $('input[name="address"]').each(function(index, dom)//index 1, dom object
-  // {
-  //   dom.checked = false;
-  // }); this works for the each method
+function htmlResetRadioButtons(){
   $('input[name="address"]:checked')[0].checked = false;
 }
 
-function htmlAddCustomerToSelect(customer)
-{
+function htmlAddCustomerToSelect(customer){
   var $option = $('<option>');
   $option.val(customer.name);
   $option.text(customer.name);
   $('#select-customer').prepend($option);
 }
+
+function htmlAddItemToCart(product){
+  var count, $tr, tr;
+  var $tds = $('#cart tbody .product-name');//creates a n array of DOM objects
+  var foundTd = _.find($tds, function(td){return td.innerText === product.name;});
+  //above td is a DOm object
+  if(foundTd){
+    count = parseInt($(foundTd).next().text(), 10);
+    count++;
+    $tr = $(foundTd).parent();
+  } else {
+    count = 1;
+    tr = '<tr><td class="product-name"></td><td class="product-count"></td><td class="product-amount"></td><td class="product-weight"></td><td class="product-shipping"></td><td class="product-grand"></td></tr>';
+    $tr = $(tr);
+    $('#cart tbody').append($tr);
+  }
+
+  var amount = product.salePrice() * count;
+  var weight = product.weight * count;
+  var shipping = weight * (db.cart.customer.isDomestic ? db.constants.domesticShipping : db.constants.internationalShipping);
+  var grand = amount + shipping;
+
+  $tr.children('.product-name').text(product.name);
+  $tr.children('.product-count').text(count);
+  $tr.children('.product-amount').text(formatCurrency(amount));
+  $tr.children('.product-weight').text(weight.toFixed(2) + ' lbs');
+  $tr.children('.product-shipping').text(formatCurrency(shipping));
+  $tr.children('.product-grand').text(formatCurrency(grand));
+  debugger;
+
+  var orderName = product.name;
+  clickPurchase(orderName, amount, shipping, grand);
+}
+
+function htmlUpdateCartTotals(){
+  $('#cart-count').text(db.cart.totals.count());
+  $('#cart-amount').text(formatCurrency(db.cart.totals.amount()));
+  $('#cart-weight').text(db.cart.totals.weight().toFixed(2) + ' lbs');
+  $('#cart-shipping').text(formatCurrency(db.cart.totals.shipping()));
+  $('#cart-grand').text(formatCurrency(db.cart.totals.grand()));
+}
+
 // -------------------------------------------------------------------- //
-// ------------------------These are the Object Classes---------------------------- //
+// -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 
 function Product(image, name, weight, price, off){
@@ -210,11 +262,33 @@ function Product(image, name, weight, price, off){
   this.salePrice = function(){return this.price - (this.price * this.off);};
 }
 
-function Customer(image, name, isDomestic)
-{
+function Customer(image, name, isDomestic){
   this.image = image;
   this.name = name;
   this.isDomestic = isDomestic;
+}
+
+function Cart(){
+  var save = this;//the Cart is this
+  this.customer = null;
+  this.products = [];
+  this.totals = {};
+  this.totals.count = function(){return save.products.length;};
+  this.totals.amount = function(){return _.reduce(save.products, function(memo, product){return memo + product.salePrice();}, 0);};//this is like a loop, the  memo=0
+  this.totals.weight = function(){return _.reduce(save.products, function(memo, product){return memo + product.weight;}, 0);};
+  this.totals.shipping = function(){return this.weight() * (save.customer.isDomestic ? db.constants.domesticShipping : db.constants.internationalShipping);};
+  this.totals.grand = function(){return this.amount() + this.shipping();};
+}
+
+function Order(orderName, amount, shipping, grand)
+{
+  var order = {};
+  order.name = orderName;
+  order.amount = amount;
+  order.shipping = shipping;
+  order.grand = grand;
+
+  db.orders.push(order);
 }
 
 // -------------------------------------------------------------------- //
@@ -245,6 +319,5 @@ function formatCurrency(number){
   return '$' + number.toFixed(2);
 }
 
-// -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
