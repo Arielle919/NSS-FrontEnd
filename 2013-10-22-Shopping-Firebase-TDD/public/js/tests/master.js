@@ -196,13 +196,13 @@ test('Add Order', function(){
   $('#products tr:nth-child(4) .product-image img').trigger('click');
   $('#purchase').trigger('click');
 
-  equal($('#orders thead th').length, 7, 'should have 7 columns in orders table');
-  equal($('#select-customer').val(), 'Select Customer', 'drop down should default to Select Customer after purchase');
   equal($('#cart tbody tr').length, 0, 'should be no rows in tbody after purchase');
   equal($('#cart-grand').text(), '', 'should be no grand total after purchase');
+  equal($('#select-customer').val(), 'default', 'drop down should default after purchase');
   equal(db.orders.length, 1, 'should be 1 order after purchase');
   ok(db.orders[0] instanceof Order, 'should be an Order instance after purchase');
   ok(db.orders[0].id, 'should have an ID after purchase');
+  equal($('#orders thead th').length, 7, 'should have 7 columns in orders table');
   equal($('#orders tbody tr').length, 1, 'should have 1 row in orders table body');
   equal($('#orders tbody .order-time').text().split(' ').length, 5, 'date time should be formatted');
   equal($('#orders tbody .order-customer').text(), 'Sally', 'should have customers name');

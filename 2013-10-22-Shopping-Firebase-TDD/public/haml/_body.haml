@@ -40,7 +40,8 @@
 .row
   .small-2.columns
     %select#select-customer
-      %option Select Customer
+      %option{value: 'default'} Select Customer
+    #purchase.button.small.radius.success.expand Purchase
   .small-10.columns
     %table#cart
       %thead
@@ -60,25 +61,23 @@
           %td#cart-weight
           %td#cart-shipping
           %td#cart-grand
-    #purchase.button.success.small.radius Purchase
-  .small-10.columns
+.row
+  .small-12.columns
     %table#orders
       %thead
-        %tr
-          %th ID
-          %th Time
-          %th Customer
-          %th Products
-          %th Total
-          %th Shipping
-          %th Grand
+        %th Id
+        %th Time
+        %th Customer
+        %th Products
+        %th Total
+        %th Shipping
+        %th Grand
       %tbody
       %tfoot
-        %tr
-          %td
-          %td
-          %td
-          %td
-          %td
-          %td
-          %td#revenue
+        %td
+        %td
+        %td
+        %td
+        %td
+        %td
+        %td#revenue
