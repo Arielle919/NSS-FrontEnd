@@ -1,0 +1,14 @@
+extends ../template/layout
+block content
+  ul
+    li
+      a(href='/rgb') RGB
+    li
+      a(href='/colors') Colors
+      //- a(href='/colors/new') New Color
+  h1 Home Page
+  - var x = 3
+  - var y = 2
+  h2= (x*y)
+  - var word = 'funny'
+  h3 very #{word}, yes it is

@@ -1,0 +1,11 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  h1 New TODO:
+  form(action='/list', method='post')
+    mixin field('name', 'Item', 'groceries', true)
+    mixin field('Date', 'DueDATE', '10/20/13', false)
+    mixin field('color', 'Color', '#ff0000', false)
+    button(type='submit') Save List
+

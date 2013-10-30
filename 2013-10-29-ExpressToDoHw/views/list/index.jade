@@ -1,0 +1,33 @@
+extends ../template/layout
+
+block content
+  h1 To Do List
+  p: a(href="/") Home
+  p: a(href="list/new") NEW LIST
+
+  h2.left ITEM
+    - var item = list[0]
+    if item
+      ul
+        each item, index in list
+          div(id='box', style='background-color:#{item.color}')
+          li= item.name
+
+  h2.right DATE DUE
+    if item
+      ul
+        each item, index in list
+          li= item.Date
+
+//- -var person = people[0]
+
+//-   if person
+//-     table#people
+//-       thead: tr
+//-           each value, property in person
+//-             th= property
+//-       tbody: td
+//-           each person, index in people
+//-             tr(id='#{person.name}-#{index}', style='background-color:#{person.color}')
+//-               each value, property in person
+//-                 td(class=property)= value
