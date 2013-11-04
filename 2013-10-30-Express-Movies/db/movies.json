@@ -1,0 +1,29 @@
+[
+{
+  "title":"Avengers",
+  "image":"http://3.bp.blogspot.com/-cHLlJisgtBw/TcHt_a5dm4I/AAAAAAAABQc/QRujx0LT1gI/s1600/avengers-billboard-16.jpg",
+  "color":"blue",
+  "rated":"PG-13",
+  "studio":"Sony Pictures Clasic",
+  "gross":123456789,
+  "numTheatres":23
+},
+{
+  "title":"Mission Inpossible Ghost Protocol",
+  "image":"http://cdn.smokingdesigners.com/wp-content/uploads/2011/12/mission-impossible-ghost-protocol-movie-poster.jpg",
+  "color":"red",
+  "rated":"R",
+  "studio":"Sony Pictures Clasic",
+  "gross":567896784,
+  "numTheatres":15
+},
+{
+  "title":"Dark Knight Rises",
+  "image":"http://www.upcomingflick.com/wp-content/uploads/2013/03/the-dark-knight-rises-movie-poster-2012-bale-nolan1.jpeg",
+  "color":"purple",
+  "rated":"R",
+  "studio":"Sony Pictures Clasic",
+  "gross":4545632377,
+  "numTheatres":88
+}
+]

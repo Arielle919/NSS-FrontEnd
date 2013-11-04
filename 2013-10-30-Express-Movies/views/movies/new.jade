@@ -1,0 +1,19 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+
+block content
+  .row
+    .small-12.columns
+      h1.subheader Create New movies
+      a.button.small.success(href='/movies') Movies Home
+      form(action='/movies', method='post')
+        mixin field('title', 'Title', 'Avengers', true)
+        mixin field('image', 'Image', '', false)
+        mixin field('color', 'Color', '#ff0000', false)
+        mixin field('rated', 'Rated', 'R', false)
+        mixin field('studio', 'Studio', 'Clasic Studio', false)
+        mixin field('gross', 'Gross', '5009006789', false)
+        mixin field('numTheatres', 'Number of Theatres', '56', false)
+        button(type='submit') SaveMovie
+
