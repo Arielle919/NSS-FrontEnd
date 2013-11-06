@@ -7,3 +7,4 @@ var Priority = mongoose.Schema({
 });
 
 mongoose.model('Priority', Priority);
+

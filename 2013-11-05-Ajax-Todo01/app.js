@@ -13,7 +13,7 @@ var path = require('path');
 var less = require('express-less');
 var mongoose = require('mongoose');
 var app = express();
-mongoose.connect('mongodb://localhost/ajax-todo');
+mongoose.connect('mongodb://localhost/ajax-todo02');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -37,6 +37,9 @@ app.get('/', home.index);
 app.get('/todos', todos.index);
 app.post('/priorities', priorities.create);
 app.post('/todos', todos.create);
+app.delete('/todos/:id', todos.delete);
+app.put('/todos/:id/completed', todos.completed);
+
 
 // start server
 http.createServer(app).listen(app.get('port'), function(){
