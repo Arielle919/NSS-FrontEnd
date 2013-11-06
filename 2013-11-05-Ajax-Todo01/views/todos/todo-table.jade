@@ -18,3 +18,5 @@ table#todos
           form(action='/todos/#{todo.id}', method='post')
             input(type='hidden', name='_method', value='delete')
             button.tiny.radius.alert(type='submit') Delete
+
+            table#todos
