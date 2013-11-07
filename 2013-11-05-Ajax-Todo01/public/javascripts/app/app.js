@@ -5,7 +5,7 @@ function initialize(){
   $('form#priority').on('submit', submitPriority);
   $('form#todo').on('submit', submitTodo);
   $('table#todos').on('click', 'input[type="checkbox"]', clickCompleted);
-  $('table#todos').on('click', '.delete > button', clickDelete);
+  $('table#todos').on('click', '.delete > button', clickDelete);//td with class of delete w/ button
 }
 
 // ------------------------------------------------------------------------- //
@@ -13,7 +13,7 @@ function initialize(){
 // ------------------------------------------------------------------------- //
 
 function submitPriority(e){
-  submitAjaxForm(e, this, function(data, status, jqXHR){
+  submitAjaxForm(e, this, function(data, status, jqXHR){//2function when you want to call data
     htmlAddPriorityToSelect(data);
   });
 }
@@ -41,9 +41,9 @@ function clickDelete(){
 // ---AJAX functions---------------------------------------- //
 // ------------------------------------------------------------------------- //
 
-function submitAjaxForm(e, form, successFn){
+function submitAjaxForm(e, form, successFn){//1st thing that happens
   var url = $(form).attr('action');
-  var data = $(form).serialize();
+  var data = $(form).serialize();//have to serialize form
 
   var options = {};
   options.url = url;

@@ -42,7 +42,7 @@ exports.delete = function(req, res){
 
 exports.completed = function(req, res){
   Todo.findById(req.params.id, function(err, todo){
-    todo.completed = !todo.completed;
+    todo.completed = !todo.completed;//makes it so you can flip back and forth
     todo.save(function(err, todo){
       res.send(todo);
     });
