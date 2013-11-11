@@ -3,6 +3,7 @@ $(document).ready(initialize);
 function initialize(){
   $(document).foundation();
   $('form#game').on('submit', submitGame);
+  $('#board').on('click', '.availableMove', moveGuy);
 
 }
 
@@ -18,6 +19,15 @@ function submitGame(e){
   });
 }
 
+function moveGuy(e) {
+  var url = '/games/' + $('#board').data('game');
+  var newPosition = $(this).data('position');
+
+  sendGenericAjaxRequest(url, {newPosition: newPosition}, 'post', 'put', e, function(data, status, jqXHR){
+    console.log(data);
+    refreshGameBoard(data);
+  });
+}
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //
@@ -25,7 +35,6 @@ function submitGame(e){
 function buildGameBoard(game){
   var gameSquares = game.size * game.size;
   $('#board').attr('data-game', game.id);
-  // $('#board').append(gameSquares);
   for (var i=0; i<gameSquares; i++)
     {
       $square = $('<div>');
@@ -34,32 +43,68 @@ function buildGameBoard(game){
       $square.css('width', (100 / game.size) + '%');
       $square.css('height', (100 / game.size) + '%');
 
+      if(i === game.start){
+        $square.text('Start').addClass('startSquare').addClass('currentPosition');
+      } else if(i === game.exit){
+        $square.text('Exit').addClass('endSquare');
+      }
+
       $('#board').append($square);
     }
+
+    determineAvailableMoves();
 }
 
 
-// function buildGameBoard(game){
-//   var gameSquares = game.boardSize * game.boardSize;
-//   $('#board').attr('data-game', game._id);
-//   for (var i=0; i<gameSquares;i++){
-//     $square = $('<div>');
-//     $square.addClass('square');
-//     $square.attr('data-position', i);
-//     $square.css('width', 100 / game.boardSize + '%');
-//     $square.css('height', 100 / game.boardSize + '%');
+function refreshGameBoard(game) {
+  $('#board div').removeClass('currentPosition');
+  var temp = game.currentPosition;
+  $($('#board div')[game.currentPosition]).addClass('currentPosition');
 
-//     if(i === game.start){
-//       $square.text('Start').addClass('startSquare').addClass('currentPosition');
-//     } else if(i === game.exit){
-//       $square.text('Exit').addClass('endSquare');
-//     }
+  determineAvailableMoves();
+}
 
-//     $('#board').append($square);
-//   }
+function determineAvailableMoves() {
+  var $squares = $('#board div');
+  var $oldMoves = $('.availableMove');
+  var sqrt = Math.sqrt($squares.length);
+  var currentPosition = $('.currentPosition').data('position');
 
-//   determineAvailableMoves();
-// }
+  if($oldMoves.length){
+    _.each($oldMoves, function(move){
+      $(move).removeClass('availableMove');
+    });
+  }
+
+  var availableMoves = [];
+  availableMoves.push(currentPosition - (sqrt + 1));
+  availableMoves.push(currentPosition - (sqrt));
+  availableMoves.push(currentPosition - (sqrt - 1));
+  availableMoves.push(currentPosition - 1);
+  availableMoves.push(currentPosition + 1);
+  availableMoves.push(currentPosition + (sqrt - 1));
+  availableMoves.push(currentPosition + (sqrt));
+  availableMoves.push(currentPosition + (sqrt + 1));
+
+  if(currentPosition % sqrt === 0){
+    _.each(availableMoves,function(num){
+      if((num+1) % sqrt !== 0 && num >= 0 && num < $squares.length) {
+        $($('#board div')[num]).addClass('availableMove');
+      }
+    });
+  } else if((currentPosition+1) % sqrt === 0){
+    _.each(availableMoves,function(num){
+      if(num % sqrt !== 0 && num >= 0 && num < $squares.length) {
+        $($('#board div')[num]).addClass('availableMove');
+      }
+    });
+  } else {
+    _.each(availableMoves,function(num){
+      $($('#board div')[num]).addClass('availableMove');
+    });
+  }
+
+}
 
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //

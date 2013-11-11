@@ -26,3 +26,16 @@ exports.start = function(req, res){
     res.send(game);
   });
 };
+
+/*
+ * POST /games/:id
+ */
+
+exports.update = function(req, res){
+  Game.findById(req.params.id, function(err, game){
+    game.currentPosition = req.body.newPosition;
+    game.save(function(err, updatedGame){
+      res.send(updatedGame);
+    })
+  });
+}
