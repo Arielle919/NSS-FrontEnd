@@ -4,6 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node app.js"
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "*",
@@ -18,7 +24,8 @@
     "socket.io": "*",
     "connect-redis": "*",
     "require-dir": "*",
-    "bcrypt": "*"
+    "bcrypt": "*",
+    "mongoose-unique-validator": "*"
   },
   "devDependencies": {
     "grunt": "*",
