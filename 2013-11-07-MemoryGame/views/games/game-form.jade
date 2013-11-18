@@ -1,7 +1,0 @@
-form#game(action='/games/start', method='post')
-  fieldset
-    legend Memory Game
-    .row
-      mixin field(null, 4, 'player', null, null,'Sara', true)
-      mixin field('amount', 4, 'boxnumber', null, null,'3', false)
-      .small-4.columns: button.radius.success.small.expand(type='submit') Start
