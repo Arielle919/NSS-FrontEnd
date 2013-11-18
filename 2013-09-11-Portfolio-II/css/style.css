@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative);
+@import url(http://fonts.googleapis.com/css?family=Baumans);
+
+.clear {
+  clear: both;
+}
+
+html {
+  background-color: #B2CCFF;
+}
+
+body {
+  font-family: 'Baumans', cursive;
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', 'Lily Script One', cursive;
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+#logoimg {
+  float: left;
+  /*border: 1px dashed red;*/
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+#logotext {
+  float: left;
+  width: 800px;
+  /*border: 1px dashed red;*/
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+ul {
+  list-style: inside lower-greek;
+}
+
+ul > li {
+  padding-left: 20px;
+}
+
+section p {
+  padding: 10px;
+  line-height: 20px;
+}
+
+section p:nth-child(2n-1) {
+  font-style: italic;
+  text-align: justify;
+}
+
+nav a:hover {
+  background-color: rgba(204, 204, 204, 0.61);
+}
