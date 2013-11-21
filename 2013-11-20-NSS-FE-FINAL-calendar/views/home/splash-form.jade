@@ -1,0 +1,21 @@
+.row
+  .small-4.columns
+    h1 .
+  .small-4.columns
+    ul.noDots
+      li.divider
+      if user
+        li.has-form: a#authentication-button.button.radius.alert.expand(href="#", data-email=user.email)= user.email
+      else
+        li.has-form: a#authentication-button.button.radius.expand(href="#", data-email="anonymous") Login | Sign Up
+  .small-4.columns
+    h1 .
+form#authentication.hidden(action='/', method='post')
+  fieldset
+    legend
+    .row
+      mixin field(6, 'text', 'email', 'Email')
+      mixin field(6, 'password', 'password', 'Password')
+    .row
+      .small-12.columns: button#register.radius.small.expand.alert Register
+      .small-12.columns: button#login.radius.success.small.expand.success Login

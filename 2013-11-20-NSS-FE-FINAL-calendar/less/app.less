@@ -1,0 +1,186 @@
+@base: #000000;
+@grey: #BABABA;
+@red: #AC0300;
+
+body{
+  background-color: @base;
+}
+
+.red-text{
+  color: @red;
+  font-weight: bold;
+  padding-top:10px;
+}
+
+.noDots
+{
+  list-style-type: none;
+}
+
+.hidden{
+  display: none;
+}
+
+.fixedAA
+{
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+fieldset {
+border: solid 1px #000000;
+padding: 1.25em;
+margin: 1.125em 0;
+}
+
+label {
+font-size: 0.875em;
+color: white;
+font-weight:bold;
+}
+
+.heading
+{
+  color: @red;
+}
+
+#login {
+background: @grey;
+border: 1px @grey solid;
+color: black;
+
+}
+
+.top-bar-section ul li > a.button.alert {
+background: @grey;
+border: 1px @grey solid;
+color: black;
+}
+
+.top-bar-section ul li > a.button.alert:hover {
+background: white;
+border: 1px @grey solid;
+color: @red;
+}
+
+.top-bar-section ul li > a.button.success {
+background: @red;
+border: 1px @red solid;
+color: white;
+}
+
+.top-bar-section ul li > a.button.success:hover {
+background: white;
+border: 1px @red solid;
+color: @red;
+}
+
+form, input[type='checkbox'], button{
+  margin: 0px;
+}
+
+.login-button
+{
+  background-color: @red;
+}
+
+.logo{
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.left-nav
+{
+  text-align: right;
+  width:170px;
+  height:800px;
+  background-color: @grey;
+  font-size:22px;
+  ul{
+    padding-top:0px;
+
+    li{
+      line-height:30px;
+      border-bottom: 4px black solid;
+
+      a{
+         color: @red;
+         margin-right:10px;
+         font-weight: bold;
+      }
+    }
+
+    li:first-child{
+      line-height:50px;
+      border-bottom: none;
+    }
+  }
+}
+
+//-------------calendar-------------/
+
+.calendar-wrapper
+{
+  width:100%;
+  max-height:500px;
+  // border: 2px solid @red;
+  float:left;
+}
+#month-title
+{
+  font-size: 50px;
+  color:@red;
+  width:350px;
+  height:100px;
+  float:left;
+  font-weight: bold;
+  padding: 10px 0 0 10px;
+}
+#year-title
+{
+  font-size: 50px;
+  color:@red;
+  width:300px;
+  height:100px;
+  float:left;
+  font-weight: bold;
+  padding: 10px 0 0 10px;
+}
+
+#days-of-the-week
+{
+  width: 100%;
+  background-color: @red;
+  height:30px;
+  color: white;
+  clear: both;
+  font-weight: bold;
+
+  ul{
+
+    li{
+      list-style-type: none;
+      display: inline;
+      margin-left: 35px;
+      line-height: 30px;
+    }
+  }
+
+}
+
+#inside-calendar
+{
+  width:100%;
+  height:100%;
+
+}
+.day-box
+{
+  width: 80px;
+  height: 70px;
+  float: left;
+  border: 1px solid @red;
+  text-align: center;
+  color: white;
+}

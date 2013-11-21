@@ -1,0 +1,64 @@
+extends ../template/splash-page
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-2.columns
+      //- include todo-form
+      h1 .
+    .small-10.columns
+      h1 Create Calendar
+      form#calendar(action='/calendar', method='post')
+        fieldset
+          legend
+          .row
+            //- mixin field(3, 'text', 'month', 'Month')
+            .small-3.columns
+              h6.heading Calendar's Month?
+              select#monthSelect
+                option(value=month) Select Month
+                option(value=January) January
+                option(value=February) February
+                option(value=March) March
+                option(value=April) April
+                option(value=May) May
+                option(value=June) June
+                option(value=July) July
+                option(value=August) August
+                option(value=September) September
+                option(value=October) October
+                option(value=November) November
+                option(value=December) December
+            mixin field(3, 'text', 'days', '# of Days')
+            .small-3.columns
+              h6.heading The 1st lands on?
+              select#weekdaySelect
+                option(value=weekday) Select WeekDay
+                option(value=Sunday) Sunday
+                option(value=Monday) Monday
+                option(value=Tuesday) Tuesday
+                option(value=Wednesday) Wednesday
+                option(value=Thursday) Thursday
+                option(value=Friday) Friday
+                option(value=Saturday) Saturday
+            mixin field(3, 'text', 'year', 'Year')
+          .row
+            .small-12.columns: button#submit-calendar.radius.small.expand.alert Create Calendar
+            .small-12.columns
+              .calendar-wrapper
+                #month-title
+                #year-title
+                #days-of-the-week
+                  ul
+                    li Sunday
+                    li Monday
+                    li Tuesday
+                    li Wednesday
+                    li Thursday
+                    li Friday
+                    li Saturday
+                #inside-calendar
+
+
+//- select#sectionSelect
+//-   option(value=selectNeutral) Select Section
