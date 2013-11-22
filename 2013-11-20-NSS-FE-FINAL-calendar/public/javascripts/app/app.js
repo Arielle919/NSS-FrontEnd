@@ -1,4 +1,4 @@
-/* global document, sendAjaxRequest, window, io */
+/* global document, sendAjaxRequest, getValue, window, io */
 
 $(document).ready(initialize);
 
@@ -56,7 +56,7 @@ function createCalendar(){
   var numDays = getValue('input[name="days"]', parseInt);
   var year = getValue('input[name="year"]', parseInt);
   var monthType = $('#monthSelect').val();
-  var weekType = $('#weekdaySelect').val();
+  //var weekType = $('#weekdaySelect').val();
 
 
   // createCalendarObject(numDays, year, monthType, weekType, i);
@@ -64,11 +64,11 @@ function createCalendar(){
   $('#year-title').text(year);
 
   for(var i = 1; i <= numDays; i++){
-      var div = '<div class="day-box"><p class="dayNum">' + i + '</p><p class="note"></p></div>';
-      var $div = $(div);
+    var div = '<div class="day-box"><p class="dayNum">' + i + '</p><p class="note"></p></div>';
+    var $div = $(div);
       // $div.addClass('gahit');
 
-      $('#inside-calendar').append($div);
+    $('#inside-calendar').append($div);
 
   }
   // if(($('#monthSelect').val() 'January' === 'January')){

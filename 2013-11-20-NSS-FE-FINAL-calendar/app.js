@@ -24,14 +24,18 @@ require('./config').initialize(app, RedisStore);
 // routes
 app.get('/', middleware.getTodos, home.index);
 app.get('/entry', entry.index);
-app.get('/calendar', calendar.index);
+
 app.post('/users', users.create);
 app.put('/login', users.login);
 app.delete('/logout', users.logout);
+
+
 app.get('/make-me-an-admin', users.makeMeAnAdmin);
 app.get('/admin', middleware.isAdmin, users.admin);
 app.delete('/users/:id', users.delete);
 app.put('/users/:id', users.update);
+
+app.get('/calendar', calendar.index);
 app.post('/calendar', calendar.create);
 app.post('/todos', todos.create);
 app.put('/todos/:id', todos.update);
