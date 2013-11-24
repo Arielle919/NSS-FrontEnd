@@ -6,8 +6,6 @@ body{
   background-color: @base;
 }
 
-
-
 .red-text{
   color: @red;
   font-weight: bold;
@@ -154,4 +152,17 @@ form, input[type='checkbox'], button{
   background: @grey;
   border: 1px @grey solid;
   color: black;
+}
+
+@media screen and (min-width: 100px) and (max-width: 675px) {
+
+    .fixedAA {
+      position: fixed;
+      top: 0;
+      z-index: 99;
+      display: none;
+  }
+
+    /** Mobile **/
+
 }
