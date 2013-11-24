@@ -8,6 +8,12 @@ block content
       h1 .
     .small-10.columns
       h1 entry page
+      a(href='/appointment/new').button.expand.radius.alert Create Appointment
   .row
     .small-12.columns
-      //- include todo-table
+      #appointments
+        each appointment in appointments
+          .appointment
+            h1: a.button(href='/entry/#{appointment.id}')= appointment.title
+            span= appointment.date
+            p= appointment.content

@@ -10,7 +10,7 @@ function initialize(){
   $('#authentication-button').on('click', clickAuthenticationButton);
   $('#register').on('click', clickRegister);
   $('#login').on('click', clickLogin);
-  $('#submit-calendar').on('click',createCalendar);
+  // $('form#appointment').on('submit', submitAppointment);
   $('#users input[type="checkbox"]').on('click', clickChangeAdmin);
   $('form#todo').on('submit', submitTodo);
   $('table#todos').on('click', 'input[type="checkbox"]', clickChangeIsComplete);
@@ -19,6 +19,8 @@ function initialize(){
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //
+
+
 
 function clickRegister(e){
   var url = '/users';
@@ -52,44 +54,6 @@ function clickAuthenticationButton(e){
   e.preventDefault();
 }
 
-function createCalendar(){
-  var numDays = getValue('input[name="days"]', parseInt);
-  var year = getValue('input[name="year"]', parseInt);
-  var monthType = $('#monthSelect').val();
-  //var weekType = $('#weekdaySelect').val();
-
-
-  // createCalendarObject(numDays, year, monthType, weekType, i);
-  $('#month-title').text(monthType);
-  $('#year-title').text(year);
-
-  for(var i = 1; i <= numDays; i++){
-    var div = '<div class="day-box"><p class="dayNum">' + i + '</p><p class="note"></p></div>';
-    var $div = $(div);
-      // $div.addClass('gahit');
-
-    $('#inside-calendar').append($div);
-
-  }
-  // if(($('#monthSelect').val() 'January' === 'January')){
-  //   gaSeats.push(i);
-
-
-  //   }
-  // } else if(($('#sectionSelect').val() === 'vip')){
-  //   vipSeats.push(j);
-
-  //   for(var j = 1; j <= numSeats; j++){
-  //     var Vdiv = '<div class="seat"><p class="seatNum">' + seatType + '-' + j + '</p><p class="seatName">' + name + '</p><p class="seatPrice">' + price + '</p></div>';
-  //     var $Vdiv = $(Vdiv);
-  //     $Vdiv.addClass('viphit');
-
-  //     $('#vip').append($Vdiv);
-
-  //   }
-  //   $('#seatCost').val('');
-  // }
-}
 
 function clickChangeAdmin(){
   var url = $(this).parent().next().find('form').attr('action');
@@ -98,6 +62,15 @@ function clickChangeAdmin(){
   });
 }
 
+// function submitAppointment(e)
+// {
+//   debugger;
+//   var url = $(this).attr('action');
+//   var data = $(this).serialize();
+//   sendAjaxRequest(url, data, 'post', null, e, function(data){
+//     htmlAddAppointment(data);
+//   });
+// }
 
 function submitTodo(e){
   var url = $(this).attr('action');
@@ -155,6 +128,12 @@ function htmlAddTodo(todo){
   var tr = '<tr data-id="' + todo._id + '"><td><input type="checkbox"></td><td>' + todo.title + '</td><td>' + todo.category + '</td><td>' + todo.dueDate + '</td></tr>';
   $('table#todos').append(tr);
 }
+
+// function htmlAddAppointment(appointment)
+// {
+//   var div = '<div data-id="' + appointment._id + '"><p class="title">' + appointment.title + '</p><p class="date">' + appointment.date + '</p><p class="content">' + appointment.content + '</p></div>';
+//   $('#appointments').append(div);
+// }
 
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //

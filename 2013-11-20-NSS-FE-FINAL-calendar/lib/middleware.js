@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Todo = mongoose.model('Todo');
+var Appointment = mongoose.model('Appointment');
 
 exports.findUser = function(req, res, next){
   if(req.session.userId){
@@ -23,6 +24,18 @@ exports.getTodos = function(req, res, next){
     });
   } else {
     res.locals.todos = [];
+    next();
+  }
+};
+
+exports.getAppointments = function(req, res, next){
+  if(res.locals.user){
+    Appointment.find({user: res.locals.user}, function(err, appointments){
+      res.locals.appointments = appointments;
+      next();
+    });
+  } else {
+    res.locals.appointments = [];
     next();
   }
 };

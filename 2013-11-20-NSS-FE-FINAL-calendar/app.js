@@ -12,18 +12,18 @@ var home = require('./routes/home');
 var users = require('./routes/users');
 var todos = require('./routes/todos');
 var entry = require('./routes/entry');
-var calendar = require('./routes/calendar');
+var appointments = require('./routes/appointments');
 
 var app = express();
 var RedisStore = require('connect-redis')(express);
-mongoose.connect('mongodb://localhost/auth-todo');
+mongoose.connect('mongodb://localhost/KeepUp');
 
 // configure express
 require('./config').initialize(app, RedisStore);
 
 // routes
 app.get('/', middleware.getTodos, home.index);
-app.get('/entry', entry.index);
+app.get('/entry', middleware.getAppointments, entry.index);
 
 app.post('/users', users.create);
 app.put('/login', users.login);
@@ -35,8 +35,10 @@ app.get('/admin', middleware.isAdmin, users.admin);
 app.delete('/users/:id', users.delete);
 app.put('/users/:id', users.update);
 
-app.get('/calendar', calendar.index);
-app.post('/calendar', calendar.create);
+app.get('/entry', entry.index);
+app.get('/appointment/new', appointments.new);
+app.post('/entry', appointments.create);
+
 app.post('/todos', todos.create);
 app.put('/todos/:id', todos.update);
 
