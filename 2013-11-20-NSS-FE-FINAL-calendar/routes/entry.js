@@ -12,4 +12,32 @@ exports.index = function(req, res){
   // });
 };
 
+/*
+ * POST /entry/:id/delete
+ */
 
+exports.delete = function(req, res){
+  Appointment.findByIdAndRemove(req.params.id, function(err, appointment){
+    res.redirect('/entry');
+  });
+};
+
+/*
+ * GET /entry/:id/edit
+ */
+
+exports.edit = function(req, res){
+  Appointment.findById(req.params.id, function(err, appointment){
+    res.render('entry/edit', {title: 'Edit Appointment', appointment: appointment});
+  });
+};
+
+/*
+ * PUT /entry/:id
+ */
+
+exports.update = function(req, res){
+  Appointment.findByIdAndUpdate(req.params.id, req.body, function(err, appointment){
+    res.redirect('/entry');
+  });
+};

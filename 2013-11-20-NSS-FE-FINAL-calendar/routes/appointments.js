@@ -20,15 +20,9 @@ exports.create = function(req, res){
   req.body.user = res.locals.user;
   new Appointment(req.body).save(function(err, appointment, count){
     // console.log('after save');
-    console.log(appointment);
+    // console.log(appointment);
     res.redirect('/entry');
   });
 
 };
-// exports.create = function(req, res){
-//   req.body.user = res.locals.user;
 
-//   new Todo(req.body).save(function(err, todo){
-//     res.send(todo);
-//   });
-// };

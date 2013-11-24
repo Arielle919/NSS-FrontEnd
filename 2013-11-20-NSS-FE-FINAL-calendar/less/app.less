@@ -6,22 +6,7 @@ body{
   background-color: @base;
 }
 
-#content{
-  height:300px;
-}
 
-.appointment
-{
-  background-color: tan;
-  border: 2px dashed black;
-}
-
-#save-appointment
-{
-  background: @grey;
-  border: 1px @grey solid;
-  color: black;
-}
 
 .red-text{
   color: @red;
@@ -136,15 +121,37 @@ form, input[type='checkbox'], button{
 }
 
 //------------appointment------------------------------------------------//
-.title
+.appointment
 {
+  background-color: @grey;
+  border: 2px solid @red;
+  // opacity: 0.5;
+  padding:10px;
+
+  .title{color:@red;}
+  .date{color: black;}
+  .content{color:black;}
 
 }
-.date
-{
 
+
+
+#content{
+  height:300px;
+  overflow-wrap:auto;
 }
-.content
-{
 
+#content input{
+  height:300px;
+  width:100%;
+  padding:20px;
+}
+
+
+
+#save-appointment
+{
+  background: @grey;
+  border: 1px @grey solid;
+  color: black;
 }

@@ -38,6 +38,9 @@ app.put('/users/:id', users.update);
 app.get('/entry', entry.index);
 app.get('/appointment/new', appointments.new);
 app.post('/entry', appointments.create);
+app.delete('/entry/:id', entry.delete);
+app.get('/entry/:id/edit', entry.edit);
+app.put('/entry/:id', entry.update);
 
 app.post('/todos', todos.create);
 app.put('/todos/:id', todos.update);
