@@ -6,6 +6,18 @@ body{
   background-color: @base;
 }
 
+html, body {
+  height: 100%; }
+
+#left, #right {
+  float: left; }
+
+#left {
+  height: 100%;
+  width: 5%; }
+
+#right {width: 95%; }
+
 .red-text{
   color: @red;
   font-weight: bold;
@@ -128,6 +140,7 @@ form, input[type='checkbox'], button{
 
   .title{color:@red;}
   .date{color: black;}
+  .time{color: black;}
   .content{color:black;}
 
 }
@@ -154,14 +167,26 @@ form, input[type='checkbox'], button{
   color: black;
 }
 
-@media screen and (min-width: 100px) and (max-width: 675px) {
+//-------------------Contact page------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+.contact-wrapper{
+  background-color: @grey;
+  border: 2px solid @red;
+  // opacity: 0.5;
+  padding:10px;
 
-    .fixedAA {
-      position: fixed;
-      top: 0;
-      z-index: 99;
-      display: none;
-  }
+  .name{color:@red;}
+  .number{color: black;}
+
+}
+@media screen and (min-width: 100px) and (max-width: 940px) {
+
+  #left {
+  height: 100%;
+  width: 50%; }
+
+#right {width: 50%; }
 
     /** Mobile **/
 

@@ -10,6 +10,7 @@ function initialize(){
   $('#authentication-button').on('click', clickAuthenticationButton);
   $('#register').on('click', clickRegister);
   $('#login').on('click', clickLogin);
+  $('#show-contactForm').on('click', showForm);
   // $('form#appointment').on('submit', submitAppointment);
   $('#users input[type="checkbox"]').on('click', clickChangeAdmin);
   $('form#todo').on('submit', submitTodo);
@@ -20,7 +21,10 @@ function initialize(){
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //
 
-
+function showForm()
+{
+  $('#contact').removeClass('hidden');
+}
 
 function clickRegister(e){
   var url = '/users';

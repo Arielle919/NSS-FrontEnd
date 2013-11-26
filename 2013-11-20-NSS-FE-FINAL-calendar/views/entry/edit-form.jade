@@ -1,13 +1,14 @@
 #the-application(class=user ? '' : 'hidden')
+  h1 Edit Appointment
   form(action='/entry/#{appointment.isNew ? "" : appointment.id}', method='post')
     if !appointment.isNew
       input(type='hidden', name='_method', value='put')
     fieldset
-      legend= title
+      legend
       .row
         mixin field(4, 'title', 'Title', appointment.title, null, true)
         mixin field(4, 'date', 'Date', appointment.date, null, false)
-        .small-4.columns
+        mixin field(4, 'time', 'Time', appointment.time, null, false)
       .row
         .small-12.columns
           label(value=appointment.content) Content

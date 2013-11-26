@@ -1,0 +1,25 @@
+form#contact.hidden(action='/contact', method='post')
+  fieldset
+    legend
+    .row
+      mixin field(8, 'text', 'name', 'Name')
+    .row
+      mixin field(8, 'text', 'number', 'Number')
+    .row
+      mixin field(8, 'text', 'address', 'Address')
+    .row
+      mixin field(8, 'text', 'email', 'Email')
+    .row
+      mixin field(8, 'text', 'group', 'Group')
+    .row
+      .small-10.columns
+        h6 Add Group to Collection
+    .row
+      .small-1.columns
+        a(href='/contact').button.radius.alert +
+      .small-11.columns
+        h6#groups Groups
+    .row
+      .small-8.columns: button#new-contact.radius.small.alert.expand Create
+      //- .small-4.small-offset-8.columns: button#new-contact.radius.small.alert.expand Create
+

@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Todo = mongoose.model('Todo');
 var Appointment = mongoose.model('Appointment');
+var Contact = mongoose.model('Contact');
 
 exports.findUser = function(req, res, next){
   if(req.session.userId){
@@ -36,6 +37,18 @@ exports.getAppointments = function(req, res, next){
     });
   } else {
     res.locals.appointments = [];
+    next();
+  }
+};
+
+exports.getContacts = function(req, res, next){
+  if(res.locals.user){
+    Contact.find({user: res.locals.user}, function(err, contacts){
+      res.locals.contacts = contacts;
+      next();
+    });
+  } else {
+    res.locals.contacts = [];
     next();
   }
 };

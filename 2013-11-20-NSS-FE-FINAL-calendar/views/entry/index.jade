@@ -2,20 +2,22 @@ extends ../template/splash-page
 include ../mixins/form-helper
 
 block content
-  .row
-    .small-12.columns
-      h1 Entry page
-      a(href='/appointment/new').button.expand.radius.alert Create Appointment
-  .row
-    .small-12.columns
-      #appointments
-        each appointment in appointments
-          .appointment
-            h1.title= appointment.title
-            h4.date= appointment.date
-            h5.content= appointment.content
-            form(action='/entry/#{appointment.id}', method='post')
-                  input(type='hidden', name='_method', value='delete')
-                  button.tiny.radius.alert(type='submit') Delete
-            p .
-            a.button.tiny.radius.alert(href='/entry/#{appointment.id}/edit') Edit
+  #right
+    .row
+      .small-12.columns
+        h1 Entry page
+        a(href='/appointment/new').button.expand.radius.alert Create Appointment
+    .row
+      .small-12.columns
+        #appointments
+          each appointment in appointments
+            .appointment
+              h1.title= appointment.title
+              h4.time= appointment.time
+              h4.date= appointment.date
+              h5.content= appointment.content
+              form(action='/entry/#{appointment.id}', method='post')
+                    input(type='hidden', name='_method', value='delete')
+                    button.tiny.radius.alert(type='submit') Delete
+              p .
+              a.button.tiny.radius.alert(href='/entry/#{appointment.id}/edit') Edit

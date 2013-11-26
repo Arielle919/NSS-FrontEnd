@@ -13,6 +13,7 @@ var users = require('./routes/users');
 var todos = require('./routes/todos');
 var entry = require('./routes/entry');
 var appointments = require('./routes/appointments');
+var contacts = require('./routes/contacts');
 
 var app = express();
 var RedisStore = require('connect-redis')(express);
@@ -24,6 +25,7 @@ require('./config').initialize(app, RedisStore);
 // routes
 app.get('/', middleware.getTodos, home.index);
 app.get('/entry', middleware.getAppointments, entry.index);
+app.get('/entry', middleware.getContacts, entry.index);
 
 app.post('/users', users.create);
 app.put('/login', users.login);
@@ -41,6 +43,11 @@ app.post('/entry', appointments.create);
 app.delete('/entry/:id', entry.delete);
 app.get('/entry/:id/edit', entry.edit);
 app.put('/entry/:id', entry.update);
+
+app.get('/contact', contacts.index);
+app.post('/contact', contacts.create);
+
+
 
 app.post('/todos', todos.create);
 app.put('/todos/:id', todos.update);
