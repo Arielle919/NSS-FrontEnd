@@ -46,6 +46,12 @@ app.put('/entry/:id', entry.update);
 
 app.get('/contact', contacts.index);
 app.post('/contact', contacts.create);
+app.get('/contact/:id', contacts.show);
+app.delete('/contact/:id', contacts.delete);
+app.get('/contact/:id/edit', contacts.edit);
+app.put('/contact/:id', contacts.update);
+
+
 
 
 

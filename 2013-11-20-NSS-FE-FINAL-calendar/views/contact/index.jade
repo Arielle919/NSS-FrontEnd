@@ -23,5 +23,12 @@ block content
             .contact-wrapper
               h1.name= contact.name
               h4.number= contact.number
-              form(action='/entry/#{contact.id}', method='post')
+              form(action='/contact/#{contact.id}', method='get')
                     button.tiny.radius.alert(type='submit') Details
+              p .
+              form(action='/contact/#{contact.id}', method='post')
+                    input(type='hidden', name='_method', value='delete')
+                    button.tiny.radius.alert(type='submit') Delete
+              p .
+              a.button.tiny.radius.alert(href='/contact/#{contact.id}/edit') Edit
+

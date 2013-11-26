@@ -1,0 +1,22 @@
+#the-application(class=user ? '' : 'hidden')
+  h1 Edit Contact
+  form(action='/contact/#{contact.isNew ? "" : contact.id}', method='post')
+    if !contact.isNew
+      input(type='hidden', name='_method', value='put')
+    fieldset
+      legend
+      .row
+        mixin field(8, 'text', 'name', 'Name', contact.name, null, true)
+      .row
+        mixin field(8, 'text', 'number', 'Number', contact.number, null, false)
+      .row
+        mixin field(8, 'text', 'address', 'Address', contact.address, null,false)
+      .row
+        mixin field(8, 'text', 'email', 'Email', contact.email, null, false)
+      .row
+        mixin field(8, 'text', 'groups', 'Group', contact.groups, null, false)
+      .row
+        .small-2.columns
+          a.button.radius.alert.small.expand(href='/contact') Cancel
+        .small-2.columns: button.radius.success.small.expand(type='submit') Save Changes
+        .small-8.columns

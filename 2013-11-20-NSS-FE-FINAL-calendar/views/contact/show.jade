@@ -1,0 +1,14 @@
+extends ../template/splash-page
+include ../mixins/form-helper
+
+block content
+  #the-application(class=user ? '' : 'hidden')
+    .row
+      .small-12.columns
+        .contact-indiviual
+          h1.name= contact.name
+          h4.number= contact.number
+          h4.address= contact.address
+          h4.email= contact.email
+          h3.groups= contact.groups
+          a(href='/contact').button.expand.alert.small Contacts
