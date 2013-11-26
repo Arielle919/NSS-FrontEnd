@@ -3,20 +3,19 @@ include ../mixins/form-helper
 
 block content
   #the-application(class=user ? '' : 'hidden')
-    #right
-      .row
-        .small-12.columns
-          h1 Your Contacts
-      .row
-        .small-7.columns
-          h3 ADD Contact
-        .small-1.columns
-          a#show-contactForm(href='#').button.expand.radius.alert +
-        .small-4.columns
-          h1 .
-      .row
-        .small-12.columns
-          include contact-form
+    .row
+      .small-12.columns
+        h1 Your Contacts
+    .row
+      .small-7.columns
+        h3 ADD Contact
+      .small-1.columns
+        a#show-contactForm(href='#').button.expand.radius.alert +
+      .small-4.columns
+        h1 .
+    .row
+      .small-12.columns
+        include contact-form
       //- .row
       //-   .small-12.columns
       //-     #contact-display
