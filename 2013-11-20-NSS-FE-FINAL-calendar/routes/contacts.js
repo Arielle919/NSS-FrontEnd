@@ -7,9 +7,14 @@ var Contact = mongoose.model('Contact');
 
 exports.index = function(req, res){
   req.body.user = res.locals.user;
-  res.render('contact/index', {title: 'KEEP UP: Contacts', contacts: res.locals.contacts});
+  Contact.find(function (err, contacts) {
+    res.render('contact/index', {title: 'KEEP UP: Contacts', contacts: contacts});
+  })
 };
 
+// Appointment.find(function(err, appointments){
+  // res.render('entry/index', {title: 'KEEP UP: Entry', user: res.locals.user, appointments: res.locals.appointments});
+  // });
 
 // exports.index = function(req, res){
 //   console.log('home.index');
