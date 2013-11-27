@@ -12,6 +12,15 @@ exports.index = function(req, res){
   });
 };
 
+/*
+ * GET /contact/new
+ */
+
+exports.new = function(req, res){
+  req.body.user = res.locals.user;
+  res.render('contact/new', {title: 'KEEP UP: Create Contact'});
+};
+
 exports.create = function(req, res){
   req.body.user = res.locals.user;
 

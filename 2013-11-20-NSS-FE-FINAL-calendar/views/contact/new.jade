@@ -1,0 +1,11 @@
+extends ../template/splash-page
+include ../mixins/form-helper
+
+block content
+  #the-application(class=user ? '' : 'hidden')
+    .row
+      .small-12.columns
+        h1 Your Contacts
+    .row
+      .small-12.columns
+        include contact-form

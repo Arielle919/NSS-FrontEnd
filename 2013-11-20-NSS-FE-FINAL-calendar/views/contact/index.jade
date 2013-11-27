@@ -2,33 +2,29 @@ extends ../template/splash-page
 include ../mixins/form-helper
 
 block content
-  #the-application(class=user ? '' : 'hidden')
-    .row
-      .small-12.columns
-        h1 Your Contacts
-    .row
-      .small-7.columns
-        h3 ADD Contact
-      .small-1.columns
-        a#show-contactForm(href='#').button.expand.radius.alert +
-      .small-4.columns
-        h1 .
-    .row
-      .small-12.columns
-        include contact-form
-    .row
-      .small-12.columns
-        #contact-display
-          each contact in contacts
-            .contact-wrapper
-              h1.name= contact.name
-              h4.number= contact.number
-              form(action='/contact/#{contact.id}', method='get')
-                    button.tiny.radius.alert(type='submit') Details
-              p .
-              form(action='/contact/#{contact.id}', method='post')
-                    input(type='hidden', name='_method', value='delete')
-                    button.tiny.radius.alert(type='submit') Delete
-              p .
-              a.button.tiny.radius.alert(href='/contact/#{contact.id}/edit') Edit
+  .row
+    .small-12.columns
+      h1 Your Contacts
+  .row
+    .small-7.columns
+      h3 ADD Contact
+    .small-1.columns
+      a#show-contactForm(href='/contact/new').button.expand.radius.alert +
+    .small-4.columns
+      h1 .
+  .row
+    .small-12.columns
+      #contact-display
+        each contact in contacts
+          .contact-wrapper
+            h1.name= contact.name
+            h4.number= contact.number
+            form(action='/contact/#{contact.id}', method='get')
+                  button.tiny.radius.alert(type='submit') Details
+            p .
+            form(action='/contact/#{contact.id}', method='post')
+                  input(type='hidden', name='_method', value='delete')
+                  button.tiny.radius.alert(type='submit') Delete
+            p .
+            a.button.tiny.radius.alert(href='/contact/#{contact.id}/edit') Edit
 

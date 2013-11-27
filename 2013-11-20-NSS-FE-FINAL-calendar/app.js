@@ -24,7 +24,7 @@ require('./config').initialize(app, RedisStore);
 
 // routes
 app.get('/', middleware.getTodos, home.index);
-app.get('/entry', middleware.getContacts, entry.index);
+app.get('/contact', middleware.getContacts, contacts.index);
 app.get('/project', middleware.getProjects, projects.index);
 
 app.post('/users', users.create);
@@ -40,6 +40,7 @@ app.put('/users/:id', users.update);
 app.get('/entry', entry.index);
 
 app.get('/contact', contacts.index);
+app.get('/contact/new', contacts.new);
 app.post('/contact', contacts.create);
 app.get('/contact/:id', contacts.show);
 app.delete('/contact/:id', contacts.delete);
@@ -52,9 +53,6 @@ app.post('/project', projects.create);
 app.delete('/project/:id', projects.delete);
 app.get('/project/:id/edit', projects.edit);
 app.put('/project/:id', projects.update);
-
-
-
 
 
 app.post('/todos', todos.create);
