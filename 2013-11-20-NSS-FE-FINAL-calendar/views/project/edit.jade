@@ -1,0 +1,24 @@
+extends ../template/splash-page
+include ../mixins/form-helper-app-edit
+
+block content
+  .row
+    .small-12.columns
+      #the-application(class=user ? '' : 'hidden')
+        h1 Edit Project
+        form(action='/project/#{project.isNew ? "" : project.id}', method='post')
+          if !project.isNew
+            input(type='hidden', name='_method', value='put')
+          fieldset
+            legend
+            .row
+              mixin field(4, 'title', 'Title', project.title, null, true)
+              mixin field(4, 'date', 'Date', project.date, null, false)
+              mixin field(4, 'time', 'Time', project.time, null, false)
+            .row
+              .small-12.columns
+                label(value=project.content) Content
+                textarea#content(name='content')=project.content
+            .row
+              .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/project') Cancel
+              .small-2.columns: button.radius.success.small.expand(type='submit') Save Changes

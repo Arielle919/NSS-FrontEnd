@@ -12,8 +12,8 @@ var home = require('./routes/home');
 var users = require('./routes/users');
 var todos = require('./routes/todos');
 var entry = require('./routes/entry');
-var appointments = require('./routes/appointments');
 var contacts = require('./routes/contacts');
+var projects = require('./routes/projects');
 
 var app = express();
 var RedisStore = require('connect-redis')(express);
@@ -24,8 +24,8 @@ require('./config').initialize(app, RedisStore);
 
 // routes
 app.get('/', middleware.getTodos, home.index);
-app.get('/entry', middleware.getAppointments, entry.index);
 app.get('/entry', middleware.getContacts, entry.index);
+app.get('/project', middleware.getProjects, projects.index);
 
 app.post('/users', users.create);
 app.put('/login', users.login);
@@ -38,11 +38,6 @@ app.delete('/users/:id', users.delete);
 app.put('/users/:id', users.update);
 
 app.get('/entry', entry.index);
-app.get('/appointment/new', appointments.new);
-app.post('/entry', appointments.create);
-app.delete('/entry/:id', entry.delete);
-app.get('/entry/:id/edit', entry.edit);
-app.put('/entry/:id', entry.update);
 
 app.get('/contact', contacts.index);
 app.post('/contact', contacts.create);
@@ -50,6 +45,13 @@ app.get('/contact/:id', contacts.show);
 app.delete('/contact/:id', contacts.delete);
 app.get('/contact/:id/edit', contacts.edit);
 app.put('/contact/:id', contacts.update);
+
+app.get('/project', projects.index);
+app.get('/project/new', projects.new);
+app.post('/project', projects.create);
+app.delete('/project/:id', projects.delete);
+app.get('/project/:id/edit', projects.edit);
+app.put('/project/:id', projects.update);
 
 
 

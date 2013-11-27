@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var Appointment = mongoose.Schema({
+var Project = mongoose.Schema({
   title      : String,
   date       : String,
   time       : String,
@@ -8,4 +8,4 @@ var Appointment = mongoose.Schema({
   content    : String
 });
 
-mongoose.model('Appointment', Appointment);
+mongoose.model('Project', Project);

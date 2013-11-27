@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Todo = mongoose.model('Todo');
-var Appointment = mongoose.model('Appointment');
 var Contact = mongoose.model('Contact');
+var Project = mongoose.model('Project');
 
 exports.findUser = function(req, res, next){
   if(req.session.userId){
@@ -29,18 +29,6 @@ exports.getTodos = function(req, res, next){
   }
 };
 
-exports.getAppointments = function(req, res, next){
-  if(res.locals.user){
-    Appointment.find({user: res.locals.user}, function(err, appointments){
-      res.locals.appointments = appointments;
-      next();
-    });
-  } else {
-    res.locals.appointments = [];
-    next();
-  }
-};
-
 exports.getContacts = function(req, res, next){
   if(res.locals.user){
     Contact.find({user: res.locals.user}, function(err, contacts){
@@ -49,6 +37,18 @@ exports.getContacts = function(req, res, next){
     });
   } else {
     res.locals.contacts = [];
+    next();
+  }
+};
+
+exports.getProjects = function(req, res, next){
+  if(res.locals.user){
+    Project.find({user: res.locals.user}, function(err, projects){
+      res.locals.projects = projects;
+      next();
+    });
+  } else {
+    res.locals.projects = [];
     next();
   }
 };
