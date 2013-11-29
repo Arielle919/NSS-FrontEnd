@@ -29,7 +29,9 @@ exports.newGroup = function(req, res){
 
 exports.new = function(req, res){
   req.body.user = res.locals.user;
-  res.render('contact/new', {title: 'KEEP UP: Create Contact'});
+  Contact.find(function (err, contacts){
+    res.render('contact/new', {title: 'KEEP UP: Create Contact', contacts: contacts});
+  });
 };
 
 exports.create = function(req, res){

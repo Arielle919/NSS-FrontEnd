@@ -18,7 +18,8 @@ form#contact(action='/contact', method='post')
       .small-1.columns
         a(href='/contact').button.radius.alert +
       .small-11.columns
-        h6#groups Groups
+        each contact in contacts
+          h6#groups= contact.groups
     .row
       .small-8.columns: button#new-contact.radius.small.alert.expand Create
     .row
