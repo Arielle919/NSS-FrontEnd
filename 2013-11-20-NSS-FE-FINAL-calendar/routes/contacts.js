@@ -8,7 +8,18 @@ var Contact = mongoose.model('Contact');
 exports.index = function(req, res){
   req.body.user = res.locals.user;
   Contact.find(function (err, contacts) {
-    res.render('contact/index', {title: 'KEEP UP: Contacts', contacts: contacts});
+    res.render('contact/index', {title: 'KEEP UP: Contacts', contacts: res.locals.contacts});
+  });
+};
+
+
+/*
+ * GET /contact/groups
+ */
+exports.newGroup = function(req, res){
+  req.body.user = res.locals.user;
+  Contact.find(function (err, contacts) {
+    res.render('contact/groups', {title: 'KEEP UP: Contacts', contacts: contacts});
   });
 };
 
@@ -68,3 +79,4 @@ exports.update = function(req, res){
     res.redirect('/contact');
   });
 };
+

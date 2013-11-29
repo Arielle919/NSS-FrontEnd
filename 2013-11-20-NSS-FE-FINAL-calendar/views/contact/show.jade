@@ -10,5 +10,7 @@ block content
           h4.number= contact.number
           h4.address= contact.address
           h4.email= contact.email
-          h3.groups= contact.groups
+          h3.groups: a(href='/contact/groups')= contact.groups
           a(href='/contact').button.expand.alert.small Contacts
+
+

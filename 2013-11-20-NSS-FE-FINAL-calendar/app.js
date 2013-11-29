@@ -40,12 +40,14 @@ app.put('/users/:id', users.update);
 app.get('/entry', entry.index);
 
 app.get('/contact', contacts.index);
+app.get('/contact/groups', contacts.newGroup);
 app.get('/contact/new', contacts.new);
 app.post('/contact', contacts.create);
 app.get('/contact/:id', contacts.show);
 app.delete('/contact/:id', contacts.delete);
 app.get('/contact/:id/edit', contacts.edit);
 app.put('/contact/:id', contacts.update);
+
 
 app.get('/project', projects.index);
 app.get('/project/new', projects.new);
