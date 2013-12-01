@@ -12,17 +12,17 @@ block content
         each general in generals
           .generals(data-id=general.id)
             h3.title= general.title
-            h4 Date:
+            h5.titles Date:
             p.date= general.date
-            h4 Time
+            h5.titles Time
             p.time= general.time
-            h4 Description
+            h5.titles Description
             p.content= general.content
-            form(action='/general/#{general.id}', method='post')
-                  input(type='hidden', name='_method', value='delete')
-                  button.tiny.radius.alert(type='submit') Delete
-            p .
-            a.button.tiny.radius.alert(href='/general/#{general.id}/edit') Edit
-
+            .small-6.columns
+              a.button.tiny.radius.alert.expand(href='/general/#{general.id}/edit') Edit
+            .small-6.columns
+              form(action='/general/#{general.id}', method='post')
+                input(type='hidden', name='_method', value='delete')
+                button.tiny.radius.alert.expand(type='submit') Delete
 
 

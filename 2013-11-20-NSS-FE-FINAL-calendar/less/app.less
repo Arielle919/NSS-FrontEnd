@@ -2,7 +2,11 @@
 @grey: #BABABA;
 @red: #AC0300;
 @dkgrey: #222222;
-
+.loginColor
+{
+  background-color: @grey;
+  color: @red;
+}
 body{
   background-color: black;
 }
@@ -169,12 +173,13 @@ form, input[type='checkbox'], button{
   background-color: transparent;
   border: 2px solid @red;
   // opacity: 0.5;
-  padding:10px;
+  padding-bottom:30px;
 
-  .title{color:@red;}
-  .date{color: @grey;}
-  .time{color: @grey;}
-  .content{color:@grey;}
+  .titles{color:@red; padding-left: 10px; font-size: 16px; font-weight: bold;}
+  .title{color:@red; padding-left:10px; background-color: @dkgrey;}
+  .date{color: @grey;padding-left: 10px;font-size: 14px;}
+  .time{color: @grey;padding-left: 10px;font-size: 14px;}
+  .content{color:@grey;padding-left: 10px;font-size: 14px; border-bottom: 1px @dkgrey solid;}
 
 }
 
@@ -208,9 +213,9 @@ form, input[type='checkbox'], button{
   padding-bottom: 50px;
 
 
-  .name{color:@red; background-color: @dkgrey;padding:10px; }
+  .name{color:@red; background-color: @dkgrey;padding:10px; border-bottom: 1px @dkgrey solid; }
   .number{color: @grey;padding:10px;}
-  .numberh4{padding-left:10px;}
+  .numberh4{padding-left:10px; border-bottom: 1px @dkgrey solid;}
 }
 .contact-indiviual
 {
@@ -266,12 +271,13 @@ form, input[type='checkbox'], button{
   background-color: transparent;
   border: 2px solid @red;
   // opacity: 0.5;
-  padding:10px;
+  padding-bottom:30px;
 
-  .title{color:@red;}
-  .time{color: @grey;}
-  .date{color: @grey;}
-  .content{color:@grey;}
+  .titles{color:@red;padding-left:10px;}
+  .title{color:@grey; padding-left:10px; background-color: @dkgrey;}
+  .time{color: @grey;padding-left:10px; border-bottom: 1px @dkgrey solid;}
+  .date{color: @grey;padding-left:10px;border-bottom: 1px @dkgrey solid;}
+  .content{color:@grey;padding-left:10px;border-bottom: 1px @dkgrey solid;}
 
 }
 

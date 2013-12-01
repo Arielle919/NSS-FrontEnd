@@ -9,7 +9,7 @@
       if user
         li.has-form: a#authentication-button.button.radius.alert.expand(href="#", data-email=user.email)= user.email
       else
-        li.has-form: a#authentication-button.button.radius.expand(href="#", data-email="anonymous") Login | Register
+        li.has-form: a#authentication-button.button.radius.expand.loginColor.alert(href="#", data-email="anonymous") Login | Register
   .small-4.columns
     h1 .
 form#authentication.hidden(action='/', method='post')

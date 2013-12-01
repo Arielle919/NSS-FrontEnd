@@ -12,23 +12,24 @@ block content
         each project in projects
           .project
             h1.title= project.title
-            span Start Time:
+            span.titles Start Time:
             span.time= project.startTime + "     "
-            span ---
+            span.titles ---
             span.time= project.endTime
             p .
-            span Start Date:
+            span.titles Start Date:
             span.date= project.startDate + "     "
-            span ---
+            span.titles ---
             span.date= project.endDate
             p .
-            h4 Description:
+            h4.titles Description:
             p.content= project.content
-            form(action='/project/#{project.id}', method='post')
-                  input(type='hidden', name='_method', value='delete')
-                  button.tiny.radius.alert(type='submit') Delete
-            p .
-            a.button.tiny.radius.alert(href='/project/#{project.id}/edit') Edit
+            .small-6.columns
+              a.button.tiny.radius.expand.alert(href='/project/#{project.id}/edit') Edit
+            .small-6.columns
+              form(action='/project/#{project.id}', method='post')
+                    input(type='hidden', name='_method', value='delete')
+                    button.tiny.radius.alert.expand(type='submit') Delete
 
 
 
