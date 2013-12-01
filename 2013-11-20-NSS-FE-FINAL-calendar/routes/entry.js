@@ -9,6 +9,6 @@ var Project = mongoose.model('Project');
 exports.index = function(req, res){
   console.log('entry.index');
   // Appointment.find(function(err, appointments){
-  res.render('entry/index', {title: 'KEEP UP: Entry', user: res.locals.user, appointments: res.locals.appointments});
+  res.render('entry/index', {title: 'KEEP UP: Entry', user: res.locals.user, projects: res.locals.projects, contacts: res.locals.contacts});
   // });
 };

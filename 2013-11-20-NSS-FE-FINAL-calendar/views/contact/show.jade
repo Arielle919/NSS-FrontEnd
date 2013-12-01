@@ -7,10 +7,18 @@ block content
       .small-12.columns
         .contact-indiviual
           h1.name= contact.name
-          h4.number= contact.number
-          h4.address= contact.address
-          h4.email= contact.email
-          h3.groups: a(href='/contact/groups')= contact.groups
+          h4.titles Contact Number:
+          p.number= contact.number
+          h4.titles Address:
+          p.address= contact.address
+          h4.titles Email:
+          p.email= contact.email
+          h4.titles Birthday:
+          p.birthday= contact.birthday
           a(href='/contact').button.expand.alert.small Contacts
+
+
+
+
 
 

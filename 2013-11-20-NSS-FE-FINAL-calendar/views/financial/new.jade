@@ -1,0 +1,24 @@
+extends ../template/splash-page
+include ../mixins/form-helper-appointment
+
+block content
+  .row
+    .small-12.columns
+      h1 Create Bill
+  .row
+    .small-12.columns
+      #the-application(class=user ? '' : 'hidden')
+        form#financial(action='/financial', method='post')
+          fieldset
+            legend
+            .row
+              mixin field(2, 'title', 'Title:', null, null, true)
+              mixin field(2, 'Amount', 'Amount Due:', null, null, false)
+              mixin field(2, 'AmountPaid', 'Amount Paid:', null, null, false)
+              mixin field(2, 'DueDate', 'Due Date:', null, null, false)
+              mixin field(2, 'DatePaid', 'Date Paid:', null, null, false)
+              mixin field(2, 'Balance', 'Account Balance:', null, null, false)
+            .row
+              .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/financial') Cancel
+              .small-2.columns: button.radius.small.expand.alert(type='submit') Save Bill
+

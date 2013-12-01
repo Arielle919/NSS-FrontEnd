@@ -1,0 +1,39 @@
+extends ../template/splash-page
+include ../mixins/form-helper-appointment
+//- include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      h1 Create Project
+  .row
+    .small-12.columns
+      #the-application(class=user ? '' : 'hidden')
+        form#project(action='/projects', method='post')
+          fieldset
+            legend
+            .row
+              mixin field(4, 'title', 'Title', null, null, true)
+              mixin field(2, 'startDate', 'StartDate', null, null, false)
+              mixin field(2, 'endDate', 'EndDate', null, null, false)
+              mixin field(2, 'startTime', 'StartTime', null, null, false)
+              mixin field(2, 'endTime', 'endTime', null, null, false)
+            .row
+              .small-12.columns
+                label(for='content') Details
+                textarea#content(name='content')
+            .row
+              .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/projects') Cancel
+              .small-2.columns: button.radius.small.expand.alert(type='submit') Save Projects
+        form#todo(action='/projects', method='post')
+          fieldset
+            legend ToDo
+            .row
+              mixin field(4, 'text', 'title', null, null, false)
+              mixin field(4, 'text', 'category', null, null, false)
+              mixin field(4, 'text', 'dueDate', null, null, false)
+            .row
+              .small-2.small-offset-10.columns: button#new-todo.radius.small.expand Create
+
+//- select#sectionSelect
+//-   option(value=selectNeutral) Select Section

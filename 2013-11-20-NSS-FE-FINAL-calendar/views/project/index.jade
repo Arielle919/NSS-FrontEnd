@@ -4,20 +4,31 @@ include ../mixins/form-helper
 block content
   .row
     .small-12.columns
-      h1 Project page
-      a(href='/project/new').button.expand.radius.alert Create Project
+      h1 Your Appointments
+      a(href='/project/new').button.expand.radius.alert Create Appointment
   .row
     .small-12.columns
       #projects
         each project in projects
           .project
             h1.title= project.title
-            h4.time= project.time
-            h4.date= project.date
-            h5.content= project.content
+            span Start Time:
+            span.time= project.startTime + "     "
+            span ---
+            span.time= project.endTime
+            p .
+            span Start Date:
+            span.date= project.startDate + "     "
+            span ---
+            span.date= project.endDate
+            p .
+            h4 Description:
+            p.content= project.content
             form(action='/project/#{project.id}', method='post')
                   input(type='hidden', name='_method', value='delete')
                   button.tiny.radius.alert(type='submit') Delete
             p .
             a.button.tiny.radius.alert(href='/project/#{project.id}/edit') Edit
+
+
 

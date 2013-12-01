@@ -3,6 +3,9 @@ var User = mongoose.model('User');
 var Todo = mongoose.model('Todo');
 var Contact = mongoose.model('Contact');
 var Project = mongoose.model('Project');
+var Financial = mongoose.model('Financial');
+var General = mongoose.model('General');
+
 
 exports.findUser = function(req, res, next){
   if(req.session.userId){
@@ -50,6 +53,30 @@ exports.getProjects = function(req, res, next){
   } else {
     res.locals.projects = [];
     next();
+  }
+};
+
+exports.getFinancial = function(req, res, next){
+  if(res.locals.user){
+      Financial.find({user: res.locals.user}, function(err, financials){
+        res.locals.financials = financials;
+        next();
+      });
+    } else {
+      res.locals.financials = [];
+      next();
+  }
+};
+
+exports.getGeneral = function(req, res, next){
+  if(res.locals.user){
+      General.find({user: res.locals.user}, function(err, generals){
+        res.locals.generals = generals;
+        next();
+      });
+    } else {
+      res.locals.generals = [];
+      next();
   }
 };
 

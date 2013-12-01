@@ -1,0 +1,28 @@
+extends ../template/splash-page
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      h1 General Everyday Task
+      a(href='/general/new').button.expand.radius.alert Create Task
+  .row
+    .small-12.columns
+      #generals
+        each general in generals
+          .generals(data-id=general.id)
+            h3.title= general.title
+            h4 Date:
+            p.date= general.date
+            h4 Time
+            p.time= general.time
+            h4 Description
+            p.content= general.content
+            form(action='/general/#{general.id}', method='post')
+                  input(type='hidden', name='_method', value='delete')
+                  button.tiny.radius.alert(type='submit') Delete
+            p .
+            a.button.tiny.radius.alert(href='/general/#{general.id}/edit') Edit
+
+
+

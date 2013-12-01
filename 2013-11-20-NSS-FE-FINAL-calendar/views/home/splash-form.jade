@@ -2,12 +2,14 @@
   .small-4.columns
     h1 .
   .small-4.columns
+    #loginRule.hidden
+      h6 NOW CLICK LOGIN AND INPUT REGISTERED EMAIL AND PASSWORD
     ul.noDots
       li.divider
       if user
         li.has-form: a#authentication-button.button.radius.alert.expand(href="#", data-email=user.email)= user.email
       else
-        li.has-form: a#authentication-button.button.radius.expand(href="#", data-email="anonymous") Login | Sign Up
+        li.has-form: a#authentication-button.button.radius.expand(href="#", data-email="anonymous") Login | Register
   .small-4.columns
     h1 .
 form#authentication.hidden(action='/', method='post')

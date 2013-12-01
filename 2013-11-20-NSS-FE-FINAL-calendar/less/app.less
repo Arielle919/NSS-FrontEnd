@@ -1,13 +1,43 @@
 @base: #000000;
 @grey: #BABABA;
 @red: #AC0300;
+@dkgrey: #222222;
 
 body{
-  background-color: @base;
+  background-color: black;
 }
 
 html, body {
   height: 100%; }
+
+//ICONS
+.icon{
+  width:300px;
+  height:200px;
+}
+.iconTitle
+{
+  text-align: left;
+}
+#app-icon
+{
+
+}
+#money-icon
+{
+
+}
+#contacts-icon
+{
+
+}
+#general-icon
+{
+
+}
+
+
+//end of icons
 
 .red-text{
   color: @red;
@@ -98,15 +128,15 @@ form, input[type='checkbox'], button{
 //------------appointment------------------------------------------------//
 .appointment
 {
-  background-color: @grey;
+  background-color: transparent;
   border: 2px solid @red;
   // opacity: 0.5;
   padding:10px;
 
   .title{color:@red;}
-  .date{color: black;}
-  .time{color: black;}
-  .content{color:black;}
+  .date{color: @grey;}
+  .time{color: @grey;}
+  .content{color:@grey;}
 
 }
 
@@ -136,15 +166,15 @@ form, input[type='checkbox'], button{
 //-------------------------------------------------------------------//
 .project
 {
-  background-color: @grey;
+  background-color: transparent;
   border: 2px solid @red;
   // opacity: 0.5;
   padding:10px;
 
   .title{color:@red;}
-  .date{color: black;}
-  .time{color: black;}
-  .content{color:black;}
+  .date{color: @grey;}
+  .time{color: @grey;}
+  .content{color:@grey;}
 
 }
 
@@ -173,27 +203,78 @@ form, input[type='checkbox'], button{
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
 .contact-wrapper{
-  background-color: @grey;
+  background-color: transparent;
   border: 2px solid @red;
-  // opacity: 0.5;
-  padding:10px;
+  padding-bottom: 50px;
 
-  .name{color:@red;}
-  .number{color: black;}
+
+  .name{color:@red; background-color: @dkgrey;padding:10px; }
+  .number{color: @grey;padding:10px;}
+  .numberh4{padding-left:10px;}
 }
 .contact-indiviual
 {
-  background-color: @grey;
+  background-color: transparent;
+  border: 2px solid @red;
+  .titles{padding:10px; color: @grey; background-color: @dkgrey; }
+  .name{color:@red;padding:10px;}
+  .number{color: @grey;padding:10px;}
+  .address{color: @grey;padding:10px;}
+  .email{color: @grey;padding:10px;}
+  .birthday{color: @grey;padding:10px;}
+}
+
+.chkbox{
+  margin: 5px;
+  float: left;
+  width: 150px;
+
+  span{
+    padding-left: 3px;
+    color: @red;
+  }
+
+  input{
+    margin: 0px;
+  }
+}
+//----------------------------------financial------------------------//
+//----------------------------------financial------------------------//
+//----------------------------------financial-----------------------//
+
+.bills
+{
+  background-color: transparent;
+  border: 2px solid @red;
+  padding-bottom:50px;
+  // opacity: 0.5;
+
+  .marginb10{margin-top:10px;}
+  .titles{color: @red; font-size: 16px; padding-left:20px; font-weight: bold; padding-bottom: 30px;}
+  .title{color:@red; background-color: @dkgrey; padding-left: 10px;}
+  .amount{color: @grey;padding-bottom: 30px;padding-left: 5px;}
+  .balance{color: @grey;padding-bottom: 30px;padding-left: 5px;}
+  .time{color:@grey;padding-bottom: 30px;padding-left: 5px;}
+
+}
+//-------------------General page------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+
+.generals
+{
+  background-color: transparent;
   border: 2px solid @red;
   // opacity: 0.5;
   padding:10px;
 
-  .name{color:@red;}
-  .number{color: black;}
-  .address{color: black;}
-  .email{color: black;}
-  .groups{color: black;}
+  .title{color:@red;}
+  .time{color: @grey;}
+  .date{color: @grey;}
+  .content{color:@grey;}
+
 }
+
 
 @media screen and (min-width: 100px) and (max-width: 940px) {
 

@@ -1,0 +1,25 @@
+extends ../template/splash-page
+include ../mixins/form-helper-app-edit
+
+block content
+  .row
+    .small-12.columns
+      #the-application(class=user ? '' : 'hidden')
+        h1 Edit Task
+        form(action='/general/#{general.isNew ? "" : general.id}', method='post')
+          if !general.isNew
+            input(type='hidden', name='_method', value='put')
+          fieldset
+            legend
+            .row
+              mixin field(4, 'title', 'Title', general.title, null, true)
+              mixin field(4, 'date', 'Date:', general.date, null, false)
+              mixin field(4, 'time', 'Time:', general.time, null, false)
+            .row
+              .small-12.columns
+                p .
+                label(value=general.content) Description
+                textarea#content(name='content')=general.content
+            .row
+              .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/general') Cancel
+              .small-2.columns: button.radius.success.small.expand(type='submit') Save Changes

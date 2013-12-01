@@ -2,8 +2,29 @@ extends ../template/splash-page
 include ../mixins/form-helper
 
 block content
-  .row
-    .small-12.columns
-      h1 Entry page
-      h3 this page holds the icons
+  #the-application(class=user ? '' : 'hidden')
+    .row
+      .small-4.columns
+        #app-icon.icon
+          a(href="/project"): img(src="../images/app_icon.png")
+      .small-2.columns
+        h1 .
+      .small-2.columns
+        h1 .
+      .small-4.columns
+        #general-icon.icon
+          a(href="/contact"): img(src="../images/contact_icon.png")
+    .row
+      .small-4.columns
+        #money-icon.icon
+          a(href="/general"): img(src="../images/task_icon.png")
+      .small-2.columns
+        h1 .
+      .small-2.columns
+        h1 .
+      .small-4.columns
+        #contacts-icon.icon
+          a(href="/financial"): img(src="../images/money_icon.png")
+
+
 

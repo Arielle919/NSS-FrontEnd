@@ -10,23 +10,22 @@ block content
       h3 ADD Contact
     .small-1.columns
       a#show-contactForm(href='/contact/new').button.expand.radius.alert +
-    .small-2.columns
-      h3 GROUPS
-    .small-2.columns
-      a(href='/contact/groups').button.expand.radius.alert →
   .row
     .small-12.columns
       #contact-display
         each contact in contacts
-          .contact-wrapper
-            h1.name= contact.name
-            h4.number= contact.number
-            form(action='/contact/#{contact.id}', method='get')
-                  button.tiny.radius.alert(type='submit') Details
-            p .
-            form(action='/contact/#{contact.id}', method='post')
-                  input(type='hidden', name='_method', value='delete')
-                  button.tiny.radius.alert(type='submit') Delete
-            p .
-            a.button.tiny.radius.alert(href='/contact/#{contact.id}/edit') Edit
+          .small-6.columns
+            .contact-wrapper
+              h1.name= contact.name
+              h4.numberh4 Number::
+              h6.number= contact.number
+              .small-4.columns
+                form(action='/contact/#{contact.id}', method='get')
+                      button.expand.small.radius.alert(type='submit') Details
+              .small-4.columns
+                form(action='/contact/#{contact.id}', method='post')
+                      input(type='hidden', name='_method', value='delete')
+                      button.expand.small.radius.alert(type='submit') Delete
+              .small-4.columns
+                a.button.expand.small.radius.alert(href='/contact/#{contact.id}/edit') Edit
 

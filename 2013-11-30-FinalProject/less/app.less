@@ -1,0 +1,237 @@
+@base: #000000;
+@grey: #BABABA;
+@red: #AC0300;
+
+body{
+  background-color: @base;
+}
+
+html, body {
+  height: 100%; }
+
+.red-text{
+  color: @red;
+  font-weight: bold;
+  padding-top:10px;
+}
+
+.noDots
+{
+  list-style-type: none;
+}
+
+.hidden{
+  display: none;
+}
+
+.fixedAA
+{
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+fieldset {
+border: solid 1px #000000;
+padding: 1.25em;
+margin: 1.125em 0;
+}
+
+label {
+font-size: 0.875em;
+color: white;
+font-weight:bold;
+}
+
+.heading
+{
+  color: @red;
+}
+
+#login {
+background: @grey;
+border: 1px @grey solid;
+color: black;
+
+}
+
+.top-bar-section ul li > a.button.alert {
+background: @grey;
+border: 1px @grey solid;
+color: black;
+}
+
+.top-bar-section ul li > a.button.alert:hover {
+background: white;
+border: 1px @grey solid;
+color: @red;
+}
+
+.top-bar-section ul li > a.button.success {
+background: @red;
+border: 1px @red solid;
+color: white;
+}
+
+.top-bar-section ul li > a.button.success:hover {
+background: white;
+border: 1px @red solid;
+color: @red;
+}
+
+form, input[type='checkbox'], button{
+  margin: 0px;
+}
+
+.login-button
+{
+  background-color: @red;
+}
+
+.logo{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+
+
+//------------appointment------------------------------------------------//
+.appointment
+{
+  background-color: @grey;
+  border: 2px solid @red;
+  // opacity: 0.5;
+  padding:10px;
+
+  .title{color:@red;}
+  .date{color: black;}
+  .time{color: black;}
+  .content{color:black;}
+
+}
+
+
+
+#content{
+  height:300px;
+  overflow-wrap:auto;
+}
+
+#content input{
+  height:300px;
+  width:100%;
+  padding:20px;
+}
+
+
+
+#save-appointment
+{
+  background: @grey;
+  border: 1px @grey solid;
+  color: black;
+}
+//-------------------Project page------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+.project
+{
+  background-color: @grey;
+  border: 2px solid @red;
+  // opacity: 0.5;
+  padding:10px;
+
+  .title{color:@red;}
+  .date{color: black;}
+  .time{color: black;}
+  .content{color:black;}
+
+}
+
+
+
+#content{
+  height:300px;
+  overflow-wrap:auto;
+}
+
+#content input{
+  height:300px;
+  width:100%;
+  padding:20px;
+}
+
+
+
+#save-project
+{
+  background: @grey;
+  border: 1px @grey solid;
+  color: black;
+}
+//-------------------Contact page------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+.contact-wrapper{
+  background-color: @grey;
+  border: 2px solid @red;
+  // opacity: 0.5;
+  padding:10px;
+
+  .name{color:@red;}
+  .number{color: black;}
+}
+.contact-indiviual
+{
+  background-color: @grey;
+  border: 2px solid @red;
+  // opacity: 0.5;
+  padding:10px;
+
+  .name{color:@red;}
+  .number{color: black;}
+  .address{color: black;}
+  .email{color: black;}
+  .groups{color: black;}
+}
+
+.chkbox{
+  margin: 5px;
+  float: left;
+  width: 150px;
+
+  span{
+    padding-left: 3px;
+    color: @red;
+  }
+
+  input{
+    margin: 0px;
+  }
+}
+//-------------------Task page------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+.chkbox_task{
+  margin: 5px;
+  float: left;
+  width: 100%;
+
+  span{
+    padding-left: 3px;
+    color: @red;
+  }
+
+  input{
+    margin: 0px;
+  }
+}
+
+
+
+@media screen and (min-width: 100px) and (max-width: 940px) {
+
+
+    /** Mobile **/
+
+}

@@ -10,16 +10,7 @@ form#contact(action='/contact', method='post')
     .row
       mixin field(8, 'text', 'email', 'Email')
     .row
-      mixin field(8, 'text', 'groups', 'Group')
-    .row
-      .small-10.columns
-        h6 Add Group to Collection
-    .row
-      .small-1.columns
-        a(href='/contact').button.radius.alert +
-      .small-11.columns
-        each contact in contacts
-          h6#groups= contact.groups
+      mixin field(8, 'text', 'birthday', 'Birthday')
     .row
       .small-8.columns: button#new-contact.radius.small.alert.expand Create
     .row

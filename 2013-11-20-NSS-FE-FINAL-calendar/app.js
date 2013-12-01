@@ -14,6 +14,8 @@ var todos = require('./routes/todos');
 var entry = require('./routes/entry');
 var contacts = require('./routes/contacts');
 var projects = require('./routes/projects');
+var financial = require('./routes/financial');
+var general = require('./routes/general');
 
 var app = express();
 var RedisStore = require('connect-redis')(express);
@@ -26,6 +28,8 @@ require('./config').initialize(app, RedisStore);
 app.get('/', middleware.getTodos, home.index);
 app.get('/contact', middleware.getContacts, contacts.index);
 app.get('/project', middleware.getProjects, projects.index);
+app.get('/financial', middleware.getFinancial, financial.index);
+app.get('/general', middleware.getGeneral, general.index);
 
 app.post('/users', users.create);
 app.put('/login', users.login);
@@ -41,6 +45,7 @@ app.get('/entry', entry.index);
 
 app.get('/contact', contacts.index);
 app.get('/contact/groups', contacts.newGroup);
+app.post('/contact/groups', contacts.createGroup);
 app.get('/contact/new', contacts.new);
 app.post('/contact', contacts.create);
 app.get('/contact/:id', contacts.show);
@@ -56,9 +61,20 @@ app.delete('/project/:id', projects.delete);
 app.get('/project/:id/edit', projects.edit);
 app.put('/project/:id', projects.update);
 
+app.get('/financial', financial.index);
+app.get('/financial/new', financial.new);
+app.post('/financial', financial.create);
+app.delete('/financial/:id', financial.delete);
+app.get('/financial/:id/edit', financial.edit);
+app.put('/financial/:id', financial.update);
 
-app.post('/todos', todos.create);
-app.put('/todos/:id', todos.update);
+app.get('/general', general.index);
+app.get('/general/new', general.new);
+app.post('/general', general.create);
+app.delete('/general/:id', general.delete);
+app.get('/general/:id/edit', general.edit);
+app.put('/general/:id', general.update);
+
 
 
 // start server & socket.io

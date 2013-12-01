@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
-
+var _ = require('lodash');
 
 /*
  * GET /project
@@ -8,7 +8,18 @@ var Project = mongoose.model('Project');
 
 exports.index = function(req, res){
   req.body.user = res.locals.user;
-  res.render('project/index', {title: 'KEEP UP: Project', user: res.locals.user, projects: res.locals.projects});
+  res.render('project/index', {title: 'KEEP UP: Project', user: res.locals.user, projects: res.locals.projects,  _: _});
+};
+
+/*
+ * GET /project/:id show page
+ */
+
+exports.show = function(req, res){
+  req.body.user = res.locals.user;
+  Project.findById(req.params.id, function(err, project){
+    res.render('project/show', {title: 'KEEP UP: Checklist', project: project,  _: _});
+  });
 };
 
 /*
@@ -35,6 +46,8 @@ exports.create = function(req, res){
   });
 
 };
+
+
 
 /*
  * POST /project/:id/delete
@@ -65,5 +78,8 @@ exports.update = function(req, res){
     res.redirect('/project');
   });
 };
+
+
+
 
 

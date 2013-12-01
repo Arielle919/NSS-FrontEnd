@@ -1,0 +1,23 @@
+extends ../template/splash-page
+include ../mixins/form-helper-app-edit
+
+block content
+  .row
+    .small-12.columns
+      #the-application(class=user ? '' : 'hidden')
+        h1 Edit Bill
+        form(action='/financial/#{financial.isNew ? "" : financial.id}', method='post')
+          if !financial.isNew
+            input(type='hidden', name='_method', value='put')
+          fieldset
+            legend
+            .row
+              mixin field(2, 'title', 'Title:', financial.title, null, true)
+              mixin field(2, 'Amount', 'Amount Due:', financial.Amount, null, false)
+              mixin field(2, 'AmountPaid', 'Amount Paid:', financial.AmountPaid, null, false)
+              mixin field(2, 'DueDate', 'Due Date:', financial.DueDate, null, false)
+              mixin field(2, 'DatePaid', 'Date Paid:', financial.DatePaid, null, false)
+              mixin field(2, 'Balance', 'Account Balance:', financial.Balance, null, false)
+            .row
+              .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/financial') Cancel
+              .small-2.columns: button.radius.success.small.expand(type='submit') Save Changes

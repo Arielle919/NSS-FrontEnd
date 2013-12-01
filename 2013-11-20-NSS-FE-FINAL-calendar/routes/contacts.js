@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Contact = mongoose.model('Contact');
-
+var _ = require('lodash');
 /*
  * GET /contact page
  */
@@ -30,15 +30,31 @@ exports.newGroup = function(req, res){
 exports.new = function(req, res){
   req.body.user = res.locals.user;
   Contact.find(function (err, contacts){
-    res.render('contact/new', {title: 'KEEP UP: Create Contact', contacts: contacts});
+    res.render('contact/new', {title: 'KEEP UP: Create Contact', contacts: contacts, _: _});
   });
 };
+
+/*
+ * POST /contact/create contact
+ */
 
 exports.create = function(req, res){
   req.body.user = res.locals.user;
 
   new Contact(req.body).save(function(err, contact){
     res.redirect('/contact');
+  });
+};
+
+/*
+ * POST /contact/groups/create
+ */
+
+exports.createGroup = function(req, res){
+  req.body.user = res.locals.user;
+
+  new Contact(req.body).save(function(err, contact){
+    res.redirect('/contact/groups');
   });
 };
 
@@ -81,4 +97,5 @@ exports.update = function(req, res){
     res.redirect('/contact');
   });
 };
+
 

@@ -1,0 +1,26 @@
+extends ../template/splash-page
+include ../mixins/form-helper-appointment
+
+block content
+  .row
+    .small-12.columns
+      h1 Create Task
+  .row
+    .small-12.columns
+      #the-application(class=user ? '' : 'hidden')
+        form#general(action='/general', method='post')
+          fieldset
+            legend
+            .row
+              mixin field(4, 'title', 'Title:', null, null, true)
+              mixin field(4, 'date', 'Date:', null, null, false)
+              mixin field(4, 'time', 'Time:', null, null, false)
+            .row
+              .small-12.columns
+                p .
+                label(for='content') Description
+                textarea#content(name='content')
+            .row
+              .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/general') Cancel
+              .small-2.columns: button.radius.small.expand.alert(type='submit') Save Task
+

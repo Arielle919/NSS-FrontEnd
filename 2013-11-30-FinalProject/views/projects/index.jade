@@ -1,0 +1,36 @@
+extends ../template/splash-page
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      #the-application(class=user ? '' : 'hidden')
+        h1 Project page
+        a(href='/projects/new').button.expand.radius.alert Create Project
+        .row
+          .small-12.columns
+            #projects
+              each project in projects
+                .project
+                  h1.title= project.title
+                  span Start Time:
+                  span.time= project.startTime + "     "
+                  span End Time:
+                  span.time= project.endTime
+                  p .
+                  span Start Date:
+                  span.date= project.startDate + "     "
+                  span End Date:
+                  span.date= project.endDate
+                  h6 Description
+                  h5.content= project.content
+                  form(action='/project/#{project.id}', method='post')
+                        input(type='hidden', name='_method', value='delete')
+                        button.tiny.radius.alert(type='submit') Delete
+                  p .
+                  a.button.tiny.radius.alert(href='/project/#{project.id}/edit') Edit
+                  p .
+                  a.button(href='/project/#{project.id}') create checklist
+
+
+

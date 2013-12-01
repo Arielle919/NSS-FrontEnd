@@ -4,7 +4,7 @@ include ../mixins/form-helper-appointment
 block content
   .row
     .small-12.columns
-      h1 Create Project
+      h1 Create Appointment
   .row
     .small-12.columns
       #the-application(class=user ? '' : 'hidden')
@@ -13,11 +13,14 @@ block content
             legend
             .row
               mixin field(4, 'title', 'Title', null, null, true)
-              mixin field(4, 'date', 'Date', null, null, false)
-              mixin field(4, 'time', 'Time', null, null, false)
+              mixin field(2, 'startDate', 'StartDate', null, null, false)
+              mixin field(2, 'endDate', 'EndDate (optional)', null, null, false)
+              mixin field(2, 'startTime', 'StartTime', null, null, false)
+              mixin field(2, 'endTime', 'endTime (optional)', null, null, false)
             .row
               .small-12.columns
-                label(for='content') Details
+                p .
+                label(for='content') Description
                 textarea#content(name='content')
             .row
               .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/project') Cancel

@@ -14,7 +14,7 @@ function initialize(){
   // $('form#appointment').on('submit', submitAppointment);
   $('#users input[type="checkbox"]').on('click', clickChangeAdmin);
   $('form#todo').on('submit', submitTodo);
-  $('table#todos').on('click', 'input[type="checkbox"]', clickChangeIsComplete);
+  // $('#generals').on('click', 'input[type="checkbox"]', clickChangeIsComplete);
 }
 
 // ------------------------------------------------------------------------- //
@@ -84,13 +84,14 @@ function submitTodo(e){
   });
 }
 
-function clickChangeIsComplete(){
-  var id = $(this).parent().parent().data('id');
-  var url = '/todos/' + id;
-  sendAjaxRequest(url, {}, 'post', 'put', null, function(data){
-    console.log(data);
-  });
-}
+// function clickChangeIsComplete(){
+//   var id = $(this).parent().data('id');
+//   var url = '/general/' + id;
+//   sendAjaxRequest(url, {}, 'post', 'put', null, function(data){
+//   debugger;
+//     console.log(data);
+//   });
+// }
 
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //
@@ -99,7 +100,7 @@ function clickChangeIsComplete(){
 function htmlRegisterComplete(result){
   $('input[name="email"]').val('');
   $('input[name="password"]').val('');
-
+  $('#loginRule').removeClass('hidden');
   if(result.status === 'ok'){
     $('form#authentication').toggleClass('hidden');
   }
