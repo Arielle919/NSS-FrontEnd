@@ -20,7 +20,7 @@ block content
             span.time= financial.DueDate
             span.titles Date Paid:
             span.time= financial.DatePaid
-            span.titles New Account Balance:
+            span.titles Balance:
             span.balance= financial.Balance
             .small-6.columns
               form(action='/financial/#{financial.id}', method='post')
