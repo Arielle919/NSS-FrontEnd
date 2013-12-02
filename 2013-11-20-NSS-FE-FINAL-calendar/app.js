@@ -74,6 +74,7 @@ app.post('/general', general.create);
 app.delete('/general/:id', general.delete);
 app.get('/general/:id/edit', general.edit);
 app.put('/general/:id', general.update);
+// app.put('/general/:id', general.updateChecklist);
 
 
 

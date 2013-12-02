@@ -56,10 +56,20 @@ exports.edit = function(req, res){
  */
 
 exports.update = function(req, res){
+  General.findById(req.params.id, function(err, general){
+    general.isComplete = !general.isComplete;
+    general.save(function(err, general){
+      res.send(general);
+    });
+  });
+
   General.findByIdAndUpdate(req.params.id, req.body, function(err, general){
     res.redirect('/general');
   });
+
+
 };
+
 
 
 

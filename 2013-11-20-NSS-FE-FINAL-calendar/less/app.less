@@ -113,10 +113,6 @@ border: 1px @red solid;
 color: @red;
 }
 
-form, input[type='checkbox'], button{
-  margin: 0px;
-}
-
 .login-button
 {
   background-color: @red;
@@ -217,6 +213,11 @@ form, input[type='checkbox'], button{
   .number{color: @grey;padding:10px;}
   .numberh4{padding-left:10px; border-bottom: 1px @dkgrey solid;}
 }
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: @grey;
+background-color: @red;
+}
 .contact-indiviual
 {
   background-color: transparent;
@@ -265,16 +266,24 @@ form, input[type='checkbox'], button{
 //-------------------General page------------------------------------//
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
-
+.checkbox{
+  margin: 0px;
+  width:50px;
+  height:50px;
+}
+.finish
+{
+  background-color: @red;
+}
 .generals
 {
   background-color: transparent;
   border: 2px solid @red;
   // opacity: 0.5;
   padding-bottom:30px;
-
+  #title{width:500px;}
   .titles{color:@red;padding-left:10px;}
-  .title{color:@grey; padding-left:10px; background-color: @dkgrey;}
+  .title{color:@red; padding-left:89px; font-size: 44px; }
   .time{color: @grey;padding-left:10px; border-bottom: 1px @dkgrey solid;}
   .date{color: @grey;padding-left:10px;border-bottom: 1px @dkgrey solid;}
   .content{color:@grey;padding-left:10px;border-bottom: 1px @dkgrey solid;}

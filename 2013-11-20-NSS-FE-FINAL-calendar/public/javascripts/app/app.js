@@ -14,7 +14,7 @@ function initialize(){
   // $('form#appointment').on('submit', submitAppointment);
   $('#users input[type="checkbox"]').on('click', clickChangeAdmin);
   $('form#todo').on('submit', submitTodo);
-  // $('#generals').on('click', 'input[type="checkbox"]', clickChangeIsComplete);
+  $('#generals').on('click', 'input[type="checkbox"]', clickChangeIsComplete);
 }
 
 // ------------------------------------------------------------------------- //
@@ -84,14 +84,13 @@ function submitTodo(e){
   });
 }
 
-// function clickChangeIsComplete(){
-//   var id = $(this).parent().data('id');
-//   var url = '/general/' + id;
-//   sendAjaxRequest(url, {}, 'post', 'put', null, function(data){
-//   debugger;
-//     console.log(data);
-//   });
-// }
+function clickChangeIsComplete(){
+  var id = $(this).parent().data('id');
+  var url = '/general/' + id;
+  sendAjaxRequest(url, {}, 'post', 'put', null, function(data){
+    // htmlChecked(box);
+  });
+}
 
 // ------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------- //
@@ -133,6 +132,14 @@ function htmlAddTodo(todo){
   var tr = '<tr data-id="' + todo._id + '"><td><input type="checkbox"></td><td>' + todo.title + '</td><td>' + todo.category + '</td><td>' + todo.dueDate + '</td></tr>';
   $('table#todos').append(tr);
 }
+
+// function htmlChecked(box)
+// {
+// debugger;
+//   // var $box = id.parent().parent();
+//   var $box = box;
+//   $box.addClass('finish');
+// }
 
 // function htmlAddAppointment(appointment)
 // {

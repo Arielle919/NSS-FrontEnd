@@ -11,7 +11,8 @@ block content
       #generals
         each general in generals
           .generals(data-id=general.id)
-            h3.title= general.title
+            #title.title= general.title
+            input.checkbox(type='checkbox', checked=general.isComplete)
             h5.titles Date:
             p.date= general.date
             h5.titles Time
@@ -24,5 +25,6 @@ block content
               form(action='/general/#{general.id}', method='post')
                 input(type='hidden', name='_method', value='delete')
                 button.tiny.radius.alert.expand(type='submit') Delete
+
 
 
