@@ -10,7 +10,6 @@ var middleware = require('./lib/middleware');
 // route definitions
 var home = require('./routes/home');
 var users = require('./routes/users');
-var todos = require('./routes/todos');
 var entry = require('./routes/entry');
 var contacts = require('./routes/contacts');
 var projects = require('./routes/projects');
@@ -25,7 +24,6 @@ mongoose.connect('mongodb://localhost/KeepUp');
 require('./config').initialize(app, RedisStore);
 
 // routes
-app.get('/', middleware.getTodos, home.index);
 app.get('/contact', middleware.getContacts, contacts.index);
 app.get('/project', middleware.getProjects, projects.index);
 app.get('/financial', middleware.getFinancial, financial.index);

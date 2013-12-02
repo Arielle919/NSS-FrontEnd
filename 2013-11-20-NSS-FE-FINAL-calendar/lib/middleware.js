@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var Todo = mongoose.model('Todo');
 var Contact = mongoose.model('Contact');
 var Project = mongoose.model('Project');
 var Financial = mongoose.model('Financial');
@@ -16,18 +15,6 @@ exports.findUser = function(req, res, next){
       }
     });
   } else {
-    next();
-  }
-};
-
-exports.getTodos = function(req, res, next){
-  if(res.locals.user){
-    Todo.find({user: res.locals.user}, function(err, todos){
-      res.locals.todos = todos;
-      next();
-    });
-  } else {
-    res.locals.todos = [];
     next();
   }
 };
