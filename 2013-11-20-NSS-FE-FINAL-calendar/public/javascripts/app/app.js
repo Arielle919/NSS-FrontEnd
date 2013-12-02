@@ -87,8 +87,9 @@ function submitTodo(e){
 function clickChangeIsComplete(){
   var id = $(this).parent().data('id');
   var url = '/general/' + id;
+  var box = $(this).parent().children();
   sendAjaxRequest(url, {}, 'post', 'put', null, function(data){
-    // htmlChecked(box);
+    htmlChecked(box);
   });
 }
 
@@ -133,13 +134,13 @@ function htmlAddTodo(todo){
   $('table#todos').append(tr);
 }
 
-// function htmlChecked(box)
-// {
-// debugger;
-//   // var $box = id.parent().parent();
-//   var $box = box;
-//   $box.addClass('finish');
-// }
+function htmlChecked(box)
+{
+debugger;
+  // var $box = id.parent().parent();
+  var $box = box;
+  $box.addClass('finish');
+}
 
 // function htmlAddAppointment(appointment)
 // {
