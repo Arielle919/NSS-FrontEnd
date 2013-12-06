@@ -29,6 +29,7 @@ app.get('/project', middleware.getProjects, projects.index);
 app.get('/financial', middleware.getFinancial, financial.index);
 app.get('/general', middleware.getGeneral, general.index);
 
+app.get('/', home.index);
 app.post('/users', users.create);
 app.put('/login', users.login);
 app.delete('/logout', users.logout);
