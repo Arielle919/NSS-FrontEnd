@@ -33,7 +33,7 @@ app.post('/users', users.create);
 app.put('/login', users.login);
 app.delete('/logout', users.logout);
 
-
+app.get('/', home.index);
 app.get('/make-me-an-admin', users.makeMeAnAdmin);
 app.get('/admin', middleware.isAdmin, users.admin);
 app.delete('/users/:id', users.delete);
